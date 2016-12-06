@@ -20,9 +20,14 @@ namespace stroimagnat
         static public SqlDataAdapter SQLAdapter = new SqlDataAdapter(strSQL, cn);
         static public string strSQL;
 
-        BindingSource bs_prepod = new BindingSource();
-        BindingSource bs_polzov = new BindingSource();
-
+        static public BindingSource bs_product = new BindingSource();
+        static public BindingSource bs_post = new BindingSource();
+        static public BindingSource bs_mol = new BindingSource();
+        static public BindingSource bs_prihod = new BindingSource();
+        static public BindingSource bs_otpusk = new BindingSource();
+        static public BindingSource bs_spid_vid = new BindingSource();
+        static public BindingSource bs_rashod = new BindingSource();
+     
         // для перемещиния формы ----------
         private Point mouseOffset;
         private bool isMouseDown = false;
@@ -39,7 +44,7 @@ namespace stroimagnat
 
             SqlConnectionStringBuilder bdr = new SqlConnectionStringBuilder();
             bdr.DataSource = @".\SQLExpress";
-            bdr.InitialCatalog = "bank_karta";
+            bdr.InitialCatalog = "vit";
             bdr.IntegratedSecurity = true;
 
             cn = new SqlConnection(bdr.ConnectionString);
@@ -51,6 +56,10 @@ namespace stroimagnat
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            //dateTimePicker1.Value = DateTime.Now.AddMonths(-1);
+            //dateTimePicker2.Value = DateTime.Now;
+
+
         }
                 
         private void button2_Click(object sender, EventArgs e)

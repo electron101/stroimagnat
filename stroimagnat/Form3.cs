@@ -15,11 +15,13 @@ namespace stroimagnat
 {
     public partial class Form3 : Form
     {
-        public static string USER;
-        //static public SqlConnection cn;
-        DataSet ds3 = new DataSet();
-        BindingSource bs_lg_get_name = new BindingSource();
+        static public SqlConnection cn;
+        static public DataSet ds = new DataSet();
+        static public SqlDataAdapter SQLAdapter = new SqlDataAdapter(strSQL, cn);
+        static public string strSQL;
 
+        BindingSource bs_prepod = new BindingSource();
+        BindingSource bs_polzov = new BindingSource();
 
         // для перемещиния формы ----------
         private Point mouseOffset;
@@ -40,10 +42,10 @@ namespace stroimagnat
             bdr.InitialCatalog = "bank_karta";
             bdr.IntegratedSecurity = true;
 
-            Form1.cn = new SqlConnection(bdr.ConnectionString);
+            cn = new SqlConnection(bdr.ConnectionString);
             try
             {
-                Form1.cn.Open();
+                cn.Open();
             }
             catch (Exception ex)
             {
@@ -91,6 +93,66 @@ namespace stroimagnat
         private void Form3_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape) this.Close();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // запустить форму прихода материалов
+            Program.F1 = new Form1();   // создаёт экземпляр формы 
+            Program.F3.Hide();          // скрывает форму входа
+            Program.F1.Show();          // отображает форму 
+            Program.F3.Close();         // закрывает форму входа
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // запустить форму материалов
+            Program.F4 = new Form4();   // создаёт экземпляр формы 
+            Program.F3.Hide();          // скрывает форму входа
+            Program.F4.Show();          // отображает форму 
+            Program.F3.Close();         // закрывает форму входа
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            // запустить форму отпуска материалов
+            Program.F2 = new Form2();   // создаёт экземпляр формы 
+            Program.F3.Hide();          // скрывает форму входа
+            Program.F2.Show();          // отображает форму 
+            Program.F3.Close();         // закрывает форму входа
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // запустить форму истории выдачи
+            Program.F5 = new Form5();   // создаёт экземпляр формы 
+            Program.F3.Hide();          // скрывает форму входа
+            Program.F5.Show();          // отображает форму 
+            Program.F3.Close();         // закрывает форму входа
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            // запустить форму поставщиков
+            Program.F6 = new Form6();   // создаёт экземпляр формы 
+            Program.F3.Hide();          // скрывает форму входа
+            Program.F6.Show();          // отображает форму 
+            Program.F3.Close();         // закрывает форму входа
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // запустить форму ответственных
+            Program.F7 = new Form7();   // создаёт экземпляр формы 
+            Program.F3.Hide();          // скрывает форму входа
+            Program.F7.Show();          // отображает форму 
+            Program.F3.Close();         // закрывает форму входа
         }
     }
 }

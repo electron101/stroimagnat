@@ -51,6 +51,7 @@ namespace stroimagnat
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            panel3.Dock = DockStyle.Top;
         }
                 
         private void button2_Click(object sender, EventArgs e)
@@ -103,56 +104,43 @@ namespace stroimagnat
         private void button1_Click(object sender, EventArgs e)
         {
             // запустить форму прихода материалов
-            Program.F1 = new Form1();   // создаёт экземпляр формы 
-            Program.F3.Hide();          // скрывает форму входа
-            Program.F1.Show();          // отображает форму 
-            Program.F3.Close();         // закрывает форму входа
+           
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             // запустить форму материалов
-            Program.F4 = new Form4();   // создаёт экземпляр формы 
-            Program.F3.Hide();          // скрывает форму входа
-            Program.F4.Show();          // отображает форму 
-            Program.F3.Close();         // закрывает форму входа
+           
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
             // запустить форму отпуска материалов
-            Program.F2 = new Form2();   // создаёт экземпляр формы 
-            Program.F3.Hide();          // скрывает форму входа
-            Program.F2.Show();          // отображает форму 
-            Program.F3.Close();         // закрывает форму входа
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             // запустить форму истории выдачи
-            Program.F5 = new Form5();   // создаёт экземпляр формы 
-            Program.F3.Hide();          // скрывает форму входа
-            Program.F5.Show();          // отображает форму 
-            Program.F3.Close();         // закрывает форму входа
-
-        }
+                  }
 
         private void button6_Click(object sender, EventArgs e)
         {
             // запустить форму поставщиков
-            Program.F6 = new Form6();   // создаёт экземпляр формы 
-            Program.F3.Hide();          // скрывает форму входа
-            Program.F6.Show();          // отображает форму 
-            Program.F3.Close();         // закрывает форму входа
+           
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             // запустить форму ответственных
-            Program.F7 = new Form7();   // создаёт экземпляр формы 
-            Program.F3.Hide();          // скрывает форму входа
-            Program.F7.Show();          // отображает форму 
-            Program.F3.Close();         // закрывает форму входа
+           
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            panel3.Visible = false;
+            panel1.Dock = DockStyle.Top;
+            panel1.Visible = true;
         }
     }
 }

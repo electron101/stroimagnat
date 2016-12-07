@@ -10,14 +10,7 @@ namespace stroimagnat
 {
     static class Program
     {
-		static public Form1 F1;         // приход материала
-		static public Form2 F2;         // отпуск материала
-		static public Form4 F4;         // материал
-		static public Form5 F5;         // история выдачи
-		static public Form6 F6;         // поставщики
-		static public Form7 F7;         // ответственные
         static public Form3 F3;         // главная форма
-
 
         // Функция выведения форм по центру экрана
         public static void center_form(Form F)

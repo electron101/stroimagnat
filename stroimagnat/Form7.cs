@@ -17,7 +17,8 @@ namespace stroimagnat
         {
             InitializeComponent();
         }
-        void load_mol()                   // функция для отображения информации
+        
+        static public void load_mol()                   // функция для отображения информации
         {
             Form3.ds.Tables["MOL"].Clear();
             Form3.strSQL = " SELECT id_mol AS '№_Ответсвенного лица', " +
@@ -27,7 +28,7 @@ namespace stroimagnat
             Form3.SQLAdapter.Fill(Form3.ds, "MOL");
 
             Form3.bs_mol.DataSource = Form3.ds.Tables["MOL"];
-            dataGridView4.DataSource = Form3.bs_mol;
+            Program.F7.dataGridView4.DataSource = Form3.bs_mol;
         }
 
         private void Form7_Load(object sender, EventArgs e)

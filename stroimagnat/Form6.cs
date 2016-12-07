@@ -18,7 +18,7 @@ namespace stroimagnat
             InitializeComponent();
         }
 
-        void load_post()                   // функция для отображения информации
+        static public void load_post()                   // функция для отображения информации
         {
             Form3.ds.Tables["POST"].Clear();
             Form3.strSQL = " SELECT id_post AS '№_Поставщика', name AS 'Наименование', " + 
@@ -29,21 +29,21 @@ namespace stroimagnat
             Form3.SQLAdapter.Fill(Form3.ds, "POST");
 
             Form3.bs_post.DataSource = Form3.ds.Tables["POST"];
-            dataGridView2.DataSource = Form3.bs_post;
+            Program.F6.dataGridView2.DataSource = Form3.bs_post;
         }
 
-        private void Form6_Load(object sender, EventArgs e)
+        static public void Form6_Load(object sender, EventArgs e)
         {
             //
             // --- [ ЗАГРУЗКА ] ---   ПОСТАВЩИКИ ----------------------------------------------------
             Form3.ds.Tables.Add("POST");
             load_post();
-            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            textBox_post_name.DataBindings.Add(new Binding("Text", Form3.bs_post, "Наименование", false, DataSourceUpdateMode.Never));
-            textBox_post_adres.DataBindings.Add(new Binding("Text", Form3.bs_post, "Адрес", false, DataSourceUpdateMode.Never));
-            textBox_post_tel.DataBindings.Add(new Binding("Text", Form3.bs_post, "Телефон", false, DataSourceUpdateMode.Never));
-            textBox_post_bank.DataBindings.Add(new Binding("Text", Form3.bs_post, "Банковский счёт", false, DataSourceUpdateMode.Never));
+            Program.F6.dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Program.F6.dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            Program.F6.textBox_post_name.DataBindings.Add(new Binding("Text", Form3.bs_post, "Наименование", false, DataSourceUpdateMode.Never));
+            Program.F6.textBox_post_adres.DataBindings.Add(new Binding("Text", Form3.bs_post, "Адрес", false, DataSourceUpdateMode.Never));
+            Program.F6.textBox_post_tel.DataBindings.Add(new Binding("Text", Form3.bs_post, "Телефон", false, DataSourceUpdateMode.Never));
+            Program.F6.textBox_post_bank.DataBindings.Add(new Binding("Text", Form3.bs_post, "Банковский счёт", false, DataSourceUpdateMode.Never));
             // --------------------------------------------------------------------------------------
         }
 

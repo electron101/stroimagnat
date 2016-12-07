@@ -44,6 +44,7 @@ namespace stroimagnat
         {
             dateTimePicker4.Value = DateTime.Now.AddMonths(-1);
             dateTimePicker3.Value = DateTime.Now;
+            Form6.Form6_Load(sender, e);
             //
             // --- [ ЗАГРУЗКА ] ---   ПРИХОД ПРОДУКТОВ ----------------------------------------------
             Form3.ds.Tables.Add("PRIHOD");

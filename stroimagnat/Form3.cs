@@ -56,9 +56,10 @@ namespace stroimagnat
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            //dateTimePicker1.Value = DateTime.Now.AddMonths(-1);
-            //dateTimePicker2.Value = DateTime.Now;
 
+            Form4.load_product();
+            Form6.load_post();
+            Form7.load_mol();
 
         }
                 

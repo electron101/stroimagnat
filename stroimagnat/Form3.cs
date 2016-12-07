@@ -38,7 +38,7 @@ namespace stroimagnat
             InitializeComponent();
         }
 
-        static public void load_product()                   // функция для отображения информации о продукте в datagridview
+        void load_product()                   // функция для отображения информации о продукте в datagridview
         {
             ds.Tables["PRODUCT"].Clear();
             strSQL = "SELECT id_product AS '№_Продукта', name AS 'Наименование', ed_izmer AS 'Единица измерения', cena AS 'Цена' FROM product";
@@ -47,7 +47,7 @@ namespace stroimagnat
             SQLAdapter.Fill(ds, "PRODUCT");
 
             bs_product.DataSource = ds.Tables["PRODUCT"];
-            Program.F1.dataGridView1.DataSource = bs_product;
+            dataGridView1.DataSource = bs_product;
         }
 
         void load_post()                   // функция для отображения информации
@@ -126,7 +126,7 @@ namespace stroimagnat
 
             SqlConnectionStringBuilder bdr = new SqlConnectionStringBuilder();
             bdr.DataSource = @".\SQLExpress";
-            bdr.InitialCatalog = "bank_karta";
+            bdr.InitialCatalog = "vit";
             bdr.IntegratedSecurity = true;
 
             cn = new SqlConnection(bdr.ConnectionString);
@@ -139,13 +139,115 @@ namespace stroimagnat
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             panel3.Dock = DockStyle.Fill;
+
+            //
+            // --- [ ЗАГРУЗКА ] ---   ПРОДУКТЫ ------------------------------------------------------
+            ds.Tables.Add("PRODUCT");
+            load_product();
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            textBox_prod_name.DataBindings.Add(new Binding("Text", bs_product, "Наименование", false, DataSourceUpdateMode.Never));
+            textBox_prod_ediz.DataBindings.Add(new Binding("Text", bs_product, "Единица измерения", false, DataSourceUpdateMode.Never));
+            textBox_prod_cena.DataBindings.Add(new Binding("Text", bs_product, "Цена", false, DataSourceUpdateMode.Never));
+
+            // --------------------------------------------------------------------------------------
+
+            //
+            // --- [ ЗАГРУЗКА ] ---   ПОСТАВЩИКИ ----------------------------------------------------
+            ds.Tables.Add("POST");
+            load_post();
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            textBox_post_name.DataBindings.Add(new Binding("Text", bs_post, "Наименование", false, DataSourceUpdateMode.Never));
+            textBox_post_adres.DataBindings.Add(new Binding("Text", bs_post, "Адрес", false, DataSourceUpdateMode.Never));
+            textBox_post_tel.DataBindings.Add(new Binding("Text", bs_post, "Телефон", false, DataSourceUpdateMode.Never));
+            textBox_post_bank.DataBindings.Add(new Binding("Text", bs_post, "Банковский счёт", false, DataSourceUpdateMode.Never));
+
+            // --------------------------------------------------------------------------------------
+
+            //
+            // --- [ ЗАГРУЗКА ] ---   ЛИЦА (МОЛ) ----------------------------------------------------
+            ds.Tables.Add("MOL");
+            load_mol();
+            dataGridView4.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView4.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            textBox_mol_fio.DataBindings.Add(new Binding("Text", bs_mol, "ФИО", false, DataSourceUpdateMode.Never));
+            textBox_mol_adres.DataBindings.Add(new Binding("Text", bs_mol, "Адрес", false, DataSourceUpdateMode.Never));
+            textBox_mol_tel.DataBindings.Add(new Binding("Text", bs_mol, "Телефон", false, DataSourceUpdateMode.Never));
+
+            // --------------------------------------------------------------------------------------
+
+            //
+            // --- [ ЗАГРУЗКА ] ---   ПРИХОД ПРОДУКТОВ ----------------------------------------------
+            ds.Tables.Add("PRIHOD");
+            load_prihod();
+            dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            comboBox_prod_pri.DataBindings.Add(new Binding("Text", bs_prihod, "Продукт", false, DataSourceUpdateMode.Never));
+            comboBox_post_pri.DataBindings.Add(new Binding("Text", bs_prihod, "Поставщик", false, DataSourceUpdateMode.Never));
+            comboBox_mol_pri.DataBindings.Add(new Binding("Text", bs_prihod, "Ответственный", false, DataSourceUpdateMode.Never));
+            numericUpDown_pri_kolvo.DataBindings.Add(new Binding("Value", bs_prihod, "Количество", false, DataSourceUpdateMode.Never));
+            textBox_pri_cena.DataBindings.Add(new Binding("Text", bs_prihod, "Цена закупочная", false, DataSourceUpdateMode.Never));
+
+            // --------------------------------------------------------------------------------------
+
+            //
+            // --- [ ЗАГРУЗКА ] ---   ОТПУСК ПРОДУКТОВ ----------------------------------------------
+            try
+            {
+                ds.Tables.Add("OTPUSK");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            load_otpusk();
+            dataGridView5.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView5.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // --------------------------------------------------------------------------------------
+
+            //
+            // --- [ ЗАГРУЗКА ] ---   СПИСОК ВЫДАЧИ -------------------------------------------------
+            ds.Tables.Add("SPIS_VID");
+            dataGridView6.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView6.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // добавляем нужные столбцы в ручную
+            ds.Tables["SPIS_VID"].Columns.Add("№_Продукта");
+            ds.Tables["SPIS_VID"].Columns.Add("Наименование");
+            ds.Tables["SPIS_VID"].Columns.Add("Колличество");
+            ds.Tables["SPIS_VID"].Columns.Add("Единица измерения");
+
+            bs_spid_vid.DataSource = ds.Tables["SPIS_VID"];
+            dataGridView6.DataSource = bs_spid_vid;
+
+            // --------------------------------------------------------------------------------------
+
+            //
+            // --- [ ЗАГРУЗКА ] ---   ВЫДАННЫЕ ПРОДУКТЫ ---------------------------------------------
+            ds.Tables.Add("RASHOD");
+            load_rashod();
+            dataGridView7.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView7.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // --------------------------------------------------------------------------------------
+
+            comboBox_prod_pri.DataSource = bs_product;
+            comboBox_prod_pri.DisplayMember = "Наименование";
+            comboBox_prod_pri.ValueMember = "№_Продукта";
+
+            comboBox_post_pri.DataSource = bs_post;
+            comboBox_post_pri.DisplayMember = "Наименование";
+            comboBox_post_pri.ValueMember = "№_Поставщика";
+
+            comboBox_mol_pri.DataSource = bs_mol;
+            comboBox_mol_pri.DisplayMember = "ФИО";
+            comboBox_mol_pri.ValueMember = "№_Ответсвенного лица";
+
+
         }
                 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-        
         // для перемещения формы мышью ----------------------------------------------
         //
         private void Form3_MouseUp(object sender, MouseEventArgs e)
@@ -155,6 +257,7 @@ namespace stroimagnat
                 isMouseDown = false;
             }
         }
+       
         private void Form3_MouseMove(object sender, MouseEventArgs e)
         {
             if (isMouseDown)
@@ -164,6 +267,7 @@ namespace stroimagnat
                 Location = mousePos;
             }
         }
+       
         private void Form3_MouseDown(object sender, MouseEventArgs e)
         {
             int xOffset;
@@ -178,6 +282,7 @@ namespace stroimagnat
                 isMouseDown = true;
             }
         }
+      
         private void Form3_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape) this.Close();
@@ -191,43 +296,49 @@ namespace stroimagnat
         private void button1_Click(object sender, EventArgs e)
         {
             // запустить форму прихода материалов
-           
+            panel3.Visible = false;
+            panel1.Dock = DockStyle.Fill;
+            panel1.Visible = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             // запустить форму материалов
-           
+            panel3.Visible = false;
+            panel4.Dock = DockStyle.Fill;
+            panel4.Visible = true;
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
             // запустить форму отпуска материалов
-            
+            panel3.Visible = false;
+            panel2.Dock = DockStyle.Fill;
+            panel2.Visible = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             // запустить форму истории выдачи
-                  }
+            panel3.Visible = false;
+            panel5.Dock = DockStyle.Fill;
+            panel5.Visible = true;
+        }
 
         private void button6_Click(object sender, EventArgs e)
         {
             // запустить форму поставщиков
-           
+            panel3.Visible = false;
+            panel6.Dock = DockStyle.Fill;
+            panel6.Visible = true;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             // запустить форму ответственных
-           
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
             panel3.Visible = false;
-            panel1.Dock = DockStyle.Fill;
-            panel1.Visible = true;
+            panel7.Dock = DockStyle.Fill;
+            panel7.Visible = true;
         }
     }
 }

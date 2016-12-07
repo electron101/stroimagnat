@@ -38,6 +38,19 @@ namespace stroimagnat
             InitializeComponent();
         }
 
+        static public void load_post()                   // функция для отображения информации
+        {
+            ds.Tables["POST"].Clear();
+            strSQL = " SELECT id_post AS '№_Поставщика', name AS 'Наименование', " +
+                           " adres AS 'Адрес', tel AS 'Телефон', bank_schet AS " +
+                           " 'Банковский счёт' FROM postav ";
+            SQLAdapter = new SqlDataAdapter(strSQL, cn);
+
+            SQLAdapter.Fill(ds, "POST");
+
+            bs_post.DataSource = ds.Tables["POST"];
+        }
+
         private void Form3_Load(object sender, EventArgs e)
         {
             Program.center_form(Program.F3);
@@ -57,9 +70,33 @@ namespace stroimagnat
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            Form4.load_product();
-            Form6.load_post();
-            Form7.load_mol();
+            //
+            // --- [ ЗАГРУЗКА ] ---   ПОСТАВЩИКИ ----------------------------------------------------
+            ds.Tables.Add("POST");
+            load_post();
+            Program.F6.dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Program.F6.dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            Program.F6.textBox_post_name.DataBindings.Add(new Binding("Text", Form3.bs_post, "Наименование", false, DataSourceUpdateMode.Never));
+            Program.F6.textBox_post_adres.DataBindings.Add(new Binding("Text", Form3.bs_post, "Адрес", false, DataSourceUpdateMode.Never));
+            Program.F6.textBox_post_tel.DataBindings.Add(new Binding("Text", Form3.bs_post, "Телефон", false, DataSourceUpdateMode.Never));
+            Program.F6.textBox_post_bank.DataBindings.Add(new Binding("Text", Form3.bs_post, "Банковский счёт", false, DataSourceUpdateMode.Never));
+            // --------------------------------------------------------------------------------------
+
+            Program.F6.dataGridView2.DataSource = bs_post;
+            //Form4.load_product();
+            //Form6.load_post();
+            //Form7.load_mol();
+            //Program.F1.comboBox_prod_pri.DataSource = Form3.bs_product;
+            //Program.F1.comboBox_prod_pri.DisplayMember = "Наименование";
+            //Program.F1.comboBox_prod_pri.ValueMember = "№_Материала";
+
+            Program.F1.comboBox_post_pri.DataSource = Form3.bs_post;
+            Program.F1.comboBox_post_pri.DisplayMember = "Наименование";
+            Program.F1.comboBox_post_pri.ValueMember = "№_Поставщика";
+
+            //Program.F1.comboBox_mol_pri.DataSource = Form3.bs_mol;
+            //Program.F1.comboBox_mol_pri.DisplayMember = "ФИО";
+            //Program.F1.comboBox_mol_pri.ValueMember = "№_Ответсвенного лица";
 
         }
                 

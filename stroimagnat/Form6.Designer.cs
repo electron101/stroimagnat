@@ -1,6 +1,6 @@
 ﻿namespace stroimagnat
 {
-    partial class Form6
+    public partial class Form6
     {
         /// <summary>
         /// Required designer variable.
@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -182,25 +182,24 @@
             this.Load += new System.EventHandler(this.Form6_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox_post_bank;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox textBox_post_tel;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox_post_adres;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox_post_name;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        public System.Windows.Forms.Button button4;
+        public System.Windows.Forms.GroupBox groupBox2;
+        public System.Windows.Forms.TextBox textBox_post_bank;
+        public System.Windows.Forms.Label label21;
+        public System.Windows.Forms.Button button5;
+        public System.Windows.Forms.Button button6;
+        public System.Windows.Forms.TextBox textBox_post_tel;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.TextBox textBox_post_adres;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox textBox_post_name;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.DataGridView dataGridView2;
     }
 }

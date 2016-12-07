@@ -44,7 +44,6 @@ namespace stroimagnat
         {
             dateTimePicker4.Value = DateTime.Now.AddMonths(-1);
             dateTimePicker3.Value = DateTime.Now;
-            Form6.Form6_Load(sender, e);
             //
             // --- [ ЗАГРУЗКА ] ---   ПРИХОД ПРОДУКТОВ ----------------------------------------------
             Form3.ds.Tables.Add("PRIHOD");
@@ -58,17 +57,7 @@ namespace stroimagnat
             //textBox_pri_cena.DataBindings.Add(new Binding("Text", Form3.bs_prihod, "Цена закупочная", false, DataSourceUpdateMode.Never));
             // --------------------------------------------------------------------------------------
 
-            comboBox_prod_pri.DataSource = Form3.bs_product;
-            comboBox_prod_pri.DisplayMember = "Наименование";
-            comboBox_prod_pri.ValueMember = "№_Материала";
-
-            comboBox_post_pri.DataSource = Form3.bs_post;
-            comboBox_post_pri.DisplayMember = "Наименование";
-            comboBox_post_pri.ValueMember = "№_Поставщика";
-
-            comboBox_mol_pri.DataSource = Form3.bs_mol;
-            comboBox_mol_pri.DisplayMember = "ФИО";
-            comboBox_mol_pri.ValueMember = "№_Ответсвенного лица";
+            
         }
 
         private void button23_Click(object sender, EventArgs e)

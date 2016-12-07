@@ -18,33 +18,8 @@ namespace stroimagnat
             InitializeComponent();
         }
 
-        static public void load_post()                   // функция для отображения информации
+        public void Form6_Load(object sender, EventArgs e)
         {
-            Form3.ds.Tables["POST"].Clear();
-            Form3.strSQL = " SELECT id_post AS '№_Поставщика', name AS 'Наименование', " + 
-                           " adres AS 'Адрес', tel AS 'Телефон', bank_schet AS " + 
-                           " 'Банковский счёт' FROM postav ";
-            Form3.SQLAdapter = new SqlDataAdapter(Form3.strSQL, Form3.cn);
-
-            Form3.SQLAdapter.Fill(Form3.ds, "POST");
-
-            Form3.bs_post.DataSource = Form3.ds.Tables["POST"];
-            Program.F6.dataGridView2.DataSource = Form3.bs_post;
-        }
-
-        static public void Form6_Load(object sender, EventArgs e)
-        {
-            //
-            // --- [ ЗАГРУЗКА ] ---   ПОСТАВЩИКИ ----------------------------------------------------
-            Form3.ds.Tables.Add("POST");
-            load_post();
-            Program.F6.dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            Program.F6.dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            Program.F6.textBox_post_name.DataBindings.Add(new Binding("Text", Form3.bs_post, "Наименование", false, DataSourceUpdateMode.Never));
-            Program.F6.textBox_post_adres.DataBindings.Add(new Binding("Text", Form3.bs_post, "Адрес", false, DataSourceUpdateMode.Never));
-            Program.F6.textBox_post_tel.DataBindings.Add(new Binding("Text", Form3.bs_post, "Телефон", false, DataSourceUpdateMode.Never));
-            Program.F6.textBox_post_bank.DataBindings.Add(new Binding("Text", Form3.bs_post, "Банковский счёт", false, DataSourceUpdateMode.Never));
-            // --------------------------------------------------------------------------------------
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -72,7 +47,7 @@ namespace stroimagnat
             {
                 Form3.SQLAdapter.InsertCommand.ExecuteNonQuery(); // выполним запрос
                 // если удачно то...
-                load_post();           // обновим таблицу
+                Form3.load_post();           // обновим таблицу
                 MessageBox.Show("Успешно добавлен!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -112,7 +87,7 @@ namespace stroimagnat
                 {
                     Form3.SQLAdapter.UpdateCommand.ExecuteNonQuery(); // выполним запрос
                     // если удачно то...
-                    load_post();           // обновим таблицу
+                    Form3.load_post();           // обновим таблицу
                     MessageBox.Show("Запись успешно обновлена!", "Обновление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
@@ -149,7 +124,7 @@ namespace stroimagnat
                             Form3.SQLAdapter.DeleteCommand.ExecuteNonQuery();
                             Form3.SQLAdapter.DeleteCommand.Parameters.Clear();
                         }
-                        load_post();           // обновим таблицу
+                        Form3.load_post();           // обновим таблицу
                         MessageBox.Show("Успешно удалено!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)

@@ -272,7 +272,7 @@
             this.dataGridView3.AllowUserToAddRows = false;
             this.dataGridView3.AllowUserToDeleteRows = false;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(-24, 120);
+            this.dataGridView3.Location = new System.Drawing.Point(2, 120);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.Size = new System.Drawing.Size(787, 286);
@@ -290,7 +290,6 @@
             this.Controls.Add(this.dataGridView3);
             this.Name = "Form1";
             this.Text = "Приход материала";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -303,29 +302,29 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button24;
-        private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.NumericUpDown numericUpDown_pri_kolvo;
-        private System.Windows.Forms.ComboBox comboBox_mol_pri;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.ComboBox comboBox_post_pri;
-        private System.Windows.Forms.Button button;
-        private System.Windows.Forms.ComboBox comboBox_prod_pri;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox_pri_cena;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        public System.Windows.Forms.Button button24;
+        public System.Windows.Forms.GroupBox groupBox12;
+        public System.Windows.Forms.Button button23;
+        public System.Windows.Forms.Label label27;
+        public System.Windows.Forms.Label label29;
+        public System.Windows.Forms.DateTimePicker dateTimePicker3;
+        public System.Windows.Forms.DateTimePicker dateTimePicker4;
+        public System.Windows.Forms.Button button7;
+        public System.Windows.Forms.GroupBox groupBox3;
+        public System.Windows.Forms.NumericUpDown numericUpDown_pri_kolvo;
+        public System.Windows.Forms.ComboBox comboBox_mol_pri;
+        public System.Windows.Forms.Button button9;
+        public System.Windows.Forms.ComboBox comboBox_post_pri;
+        public System.Windows.Forms.Button button;
+        public System.Windows.Forms.ComboBox comboBox_prod_pri;
+        public System.Windows.Forms.Label label20;
+        public System.Windows.Forms.TextBox textBox_pri_cena;
+        public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.DataGridView dataGridView3;
 
     }
 }

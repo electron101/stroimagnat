@@ -37,8 +37,33 @@ namespace stroimagnat
         {
             InitializeComponent();
         }
+      
+        static public void load_prihod()                   // функция для отображения информации
+        {
+            //if (ds.Tables["PRIHOD"] == null)
+            //    ds.Tables.Add("PRIHOD");
+            ds.Tables["PRIHOD"].Clear();
+            strSQL = " SELECT prihod.id_prihod AS '№_Прихода', postav.name AS 'Поставщик', " +
+                           " mol.name AS 'Ответственный', product.name AS 'Материал', " +
+                           " prihod.kolvo AS 'Количество', " +
+                           " prihod.date_time AS 'Дата_прихода' FROM prihod JOIN postav ON " +
+                           " prihod.id_post = postav.id_post JOIN mol ON prihod.id_mol = " +
+                           " mol.id_mol JOIN product ON prihod.id_product = product.id_product ";// +
+                           //" WHERE prihod.date_time >= @DATE_S AND prihod.date_time < @DATE_PO ";
 
-        private void Form3_Load(object sender, EventArgs e)
+            SqlCommand cm0 = new SqlCommand(strSQL, cn);
+            cm0.Parameters.Add("@DATE_S", SqlDbType.Date).Value = Program.F1.dateTimePicker4.Value;
+            cm0.Parameters.Add("@DATE_PO", SqlDbType.Date).Value = Program.F1.dateTimePicker3.Value.AddDays(1);
+
+            SQLAdapter = new SqlDataAdapter(cm0);
+            SQLAdapter.Fill(ds, "PRIHOD");
+
+            bs_prihod.DataSource = ds.Tables["PRIHOD"];
+            Program.F1.dataGridView3.DataSource = bs_prihod;
+        }
+
+
+        public void Form3_Load(object sender, EventArgs e)
         {
             Program.center_form(Program.F3);
 
@@ -59,7 +84,32 @@ namespace stroimagnat
             //dateTimePicker1.Value = DateTime.Now.AddMonths(-1);
             //dateTimePicker2.Value = DateTime.Now;
 
+            Program.F1.dateTimePicker4.Value = DateTime.Now.AddMonths(-1);
+            Program.F1.dateTimePicker3.Value = DateTime.Now;
+            //
+            // --- [ ЗАГРУЗКА ] ---   ПРИХОД ПРОДУКТОВ ----------------------------------------------
+            ds.Tables.Add("PRIHOD");
+            load_prihod();
+            Program.F1.dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Program.F1.dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            Program.F1.comboBox_prod_pri.DataBindings.Add(new Binding("Text", bs_prihod, "Материал", false, DataSourceUpdateMode.Never));
+            Program.F1.comboBox_post_pri.DataBindings.Add(new Binding("Text", bs_prihod, "Поставщик", false, DataSourceUpdateMode.Never));
+            Program.F1.comboBox_mol_pri.DataBindings.Add(new Binding("Text", bs_prihod, "Ответственный", false, DataSourceUpdateMode.Never));
+            Program.F1.numericUpDown_pri_kolvo.DataBindings.Add(new Binding("Value", bs_prihod, "Количество", false, DataSourceUpdateMode.Never));
+            //textBox_pri_cena.DataBindings.Add(new Binding("Text", bs_prihod, "Цена закупочная", false, DataSourceUpdateMode.Never));
+            // --------------------------------------------------------------------------------------
 
+            //Program.F1.comboBox_prod_pri.DataSource = bs_product;
+            //Program.F1.comboBox_prod_pri.DisplayMember = "Наименование";
+            //Program.F1.comboBox_prod_pri.ValueMember = "№_Материала";
+
+            //Program.F1.comboBox_post_pri.DataSource = bs_post;
+            //Program.F1.comboBox_post_pri.DisplayMember = "Наименование";
+            //Program.F1.comboBox_post_pri.ValueMember = "№_Поставщика";
+
+            //Program.F1.comboBox_mol_pri.DataSource = bs_mol;
+            //Program.F1.comboBox_mol_pri.DisplayMember = "ФИО";
+            //Program.F1.comboBox_mol_pri.ValueMember = "№_Ответсвенного лица";
         }
                 
         private void button2_Click(object sender, EventArgs e)

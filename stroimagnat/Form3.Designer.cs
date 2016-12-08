@@ -251,9 +251,10 @@
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.dataGridView3);
-            this.panel1.Location = new System.Drawing.Point(12, 78);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 72);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(38, 25);
+            this.panel1.Size = new System.Drawing.Size(800, 492);
             this.panel1.TabIndex = 16;
             this.panel1.Visible = false;
             // 
@@ -265,6 +266,7 @@
             this.button24.TabIndex = 18;
             this.button24.Text = "Печатать отчёт";
             this.button24.UseVisualStyleBackColor = true;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
             // groupBox12
             // 
@@ -289,6 +291,7 @@
             this.button22.TabIndex = 6;
             this.button22.Text = "Отмена";
             this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // button23
             // 
@@ -298,6 +301,7 @@
             this.button23.TabIndex = 5;
             this.button23.Text = "Показать";
             this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.button23_Click);
             // 
             // label27
             // 
@@ -339,6 +343,7 @@
             this.button8.TabIndex = 16;
             this.button8.Text = "Удалить";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // groupBox3
             // 
@@ -390,6 +395,7 @@
             this.button9.TabIndex = 7;
             this.button9.Text = "Добавить";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // comboBox_post_pri
             // 
@@ -407,6 +413,7 @@
             this.button.TabIndex = 8;
             this.button.Text = "Обновить";
             this.button.UseVisualStyleBackColor = true;
+            this.button.Click += new System.EventHandler(this.button_Click);
             // 
             // comboBox_prod_pri
             // 

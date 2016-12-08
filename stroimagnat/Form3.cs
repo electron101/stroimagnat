@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using Microsoft.Office.Interop;
+
 
 namespace stroimagnat
 {
@@ -339,6 +341,333 @@ namespace stroimagnat
             panel3.Visible = false;
             panel7.Dock = DockStyle.Fill;
             panel7.Visible = true;
+        }
+
+        bool filter = false;  // переменная для заголовка в отчёте в excel была ли фильтрация или нет 
+        private void button23_Click(object sender, EventArgs e)
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = bs_prihod;
+            // Выводи все записи с... по...
+
+            bs.Filter = string.Format(" CONVERT(Дата_прихода, 'System.DateTime') >= '{0:dd.MM.yyyy}' AND CONVERT(Дата_прихода, 'System.DateTime') <= '{1:dd.MM.yyyy}'",
+            dateTimePicker4.Value.ToShortDateString(), dateTimePicker3.Value.ToShortDateString());
+
+            filter = true;
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = bs_prihod;
+            bs.RemoveFilter();
+
+            filter = false;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            // --- [ УДАЛЕНИЕ ВЫБРАННЫХ ] ---   ПРИЁМ ПРОДУКТОВ
+
+            if (ds.Tables["PRIHOD"].Rows.Count > 0)              // проверка на наличие строк в таблице
+            {
+                strSQL = " DELETE FROM prihod WHERE id_prihod = @ID_P ";
+
+                string strSQLU = " UPDATE nalichie SET kolvo = kolvo - @KOLVO WHERE id_product = @ID_PR ";
+
+                SQLAdapter.DeleteCommand = new SqlCommand(strSQL, cn);
+
+                SQLAdapter.UpdateCommand = new SqlCommand(strSQLU, cn);
+
+                // Если нажата кномка да, удаления не избежать.
+                if (DialogResult.Yes == MessageBox.Show("Вы уверены в удалении? \nЗаписей:  "
+                    + dataGridView3.SelectedRows.Count.ToString(), "Удаление", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question, MessageBoxDefaultButton.Button1))
+                {
+                    try
+                    {
+                        foreach (DataGridViewRow drv in dataGridView3.SelectedRows)
+                        {
+                            int ID_prod = 0;
+                            strSQL = "SELECT id_product AS 'ID' FROM prihod WHERE id_prihod = @ID_P";
+                            using (SqlCommand cm = new SqlCommand(strSQL, cn))
+                            {
+                                cm.Parameters.Add("@ID_P", SqlDbType.Int).Value =
+                                    Convert.ToInt32(ds.Tables["PRIHOD"].Rows[drv.Index][0]);
+                                try
+                                {
+                                    using (SqlDataReader rd = cm.ExecuteReader())
+                                    {
+                                        while (rd.Read())
+                                        {
+                                            ID_prod = Convert.ToInt32(rd["ID"]);
+                                        }
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+
+                            SQLAdapter.DeleteCommand.Parameters.Add("@ID_P", SqlDbType.Int).Value =
+                                Convert.ToInt32(ds.Tables["PRIHOD"].Rows[drv.Index][0]);
+                            SQLAdapter.DeleteCommand.ExecuteNonQuery();
+                            SQLAdapter.DeleteCommand.Parameters.Clear();
+                            try
+                            {
+                                SQLAdapter.UpdateCommand.Parameters.Add("@ID_PR", SqlDbType.Int).Value = ID_prod;
+                                SQLAdapter.UpdateCommand.Parameters.Add("@KOLVO", SqlDbType.Int).Value =
+                                    Convert.ToInt32(ds.Tables["PRIHOD"].Rows[drv.Index][4]);
+                                SQLAdapter.UpdateCommand.ExecuteNonQuery();
+                                SQLAdapter.UpdateCommand.Parameters.Clear();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        load_prihod();           // обновим таблицу
+                        MessageBox.Show("Успешно удалено!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            else
+                MessageBox.Show("Таблица пуста", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            // В EXCEL на печать --------------------------------------------------------------------------------
+            //
+            // объект класса для запуска Excel из программы
+            Microsoft.Office.Interop.Excel.Application ExApp = new Microsoft.Office.Interop.Excel.Application();
+
+            ExApp.Workbooks.Add(Type.Missing); // создаю рабочую книгу
+
+            ExApp.Worksheets.get_Item(1);       // создаю лист 1
+
+            // шапка корзины
+            for (int k = 0; k < dataGridView3.ColumnCount; k++)
+                ExApp.Cells[2, k + 1] = dataGridView3.Columns[k].Name.ToString();
+
+            int i = 0;
+            int j = 0;
+            decimal count = 0;
+            for (i = 0; i < dataGridView3.RowCount; i++)
+            {
+                for (j = 0; j < dataGridView3.ColumnCount; j++)
+                    ExApp.Cells[i + 3, j + 1] = dataGridView3.Rows[i].Cells[j].Value.ToString();
+
+                count = count + (Convert.ToInt32(dataGridView3.Rows[i].Cells[4].Value) * Convert.ToDecimal(dataGridView3.Rows[i].Cells[5].Value));
+            }
+
+            ExApp.Rows[1].Font.Bold = true;         // первая строка будет жирным шрифтом
+            ExApp.Rows[i + 3].Font.Bold = true;     // последняя строка будет жирым шрифтом
+
+            ExApp.Range[ExApp.Cells[i + 3, 1], ExApp.Cells[i + 3, j - 1]].Merge(); // объединяет ячейки последней строки
+
+            ExApp.Cells[i + 3, 1] = "Итого (руб)";  // Итого:
+            ExApp.Cells[i + 3, j] = count;   // итоговая сумма, i + 2, т.к. прибовляем шапку и новую строку
+
+            ExApp.Range[ExApp.Cells[1, 1], ExApp.Cells[1, j]].Merge(); // объединяет ячейки первой строки
+            if (filter)
+                ExApp.Cells[1, 1] = "Очёт по приходу товара с   " + dateTimePicker4.Text + "    по  " + dateTimePicker3.Text;
+            else
+                ExApp.Cells[1, 1] = "Очёт по приходу товара за всё время";
+
+            /*
+            ExApp.Worksheets.PrintPreview();
+            ExApp.ActiveSheet.PrintOut(1, 2, 1, false, false, true, false, false);
+                    
+            ExApp.Range[ExApp.Cells[1, 1], ExApp.Cells[i, j]].Select();
+            ExApp.ActiveSheet.PrintOut(1, 2, 1, false, false, true, false, false);
+            */
+            //((Microsoft.Office.Interop.Excel.Worksheet)ExApp.ActiveSheet).PrintOut
+            //(1, 1, 2, true);
+
+            ExApp.Columns.EntireColumn.AutoFit();   // ширина столбцов растягивается по содержимому
+
+            ExApp.Visible = true;   // показать созданный документ
+
+
+            //
+            // --------------------------------------------------------------------------------------------------
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            // --- [ ДОБАВЛЕНИЕ ] ---  ПРИЁМ ПРОДУКТОВ
+
+            // проверим все поля на заполненность
+            if (textBox_pri_cena.Text == "" || comboBox_prod_pri.Text == ""
+                || comboBox_post_pri.Text == "" || comboBox_mol_pri.Text == "" || numericUpDown_pri_kolvo.Value <= 0)
+            {
+                MessageBox.Show("Заполните все поля\nКолличество не может быть равным 0 или быть отрицательным",
+                    "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // есть ли такой продукт в наличии если есть то в таблицу наличие не будем заносить а будем
+            // изменять его колличество иначе внесём 
+            int kolvo = 0;
+            strSQL = "SELECT count(*) AS 'count' FROM nalichie WHERE id_product = @ID_P";
+            using (SqlCommand cm = new SqlCommand(strSQL, cn))
+            {
+                cm.Parameters.Add("@ID_P", SqlDbType.Int).Value = comboBox_prod_pri.SelectedValue;
+                try
+                {
+                    using (SqlDataReader rd = cm.ExecuteReader())
+                    {
+                        while (rd.Read())
+                        {
+                            kolvo = Convert.ToInt32(rd["count"]);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+            // запрос на добавление
+            strSQL = " INSERT INTO prihod VALUES (@ID_POST, @ID_MOL, @ID_PROD, @KOLVO, @CENA, @DATE) ";
+
+            // работаем через адаптер и свойство добавления
+            SQLAdapter.InsertCommand = new SqlCommand(strSQL, cn);  // новая команда создана
+            // определим параметры и зададим им значения
+            SQLAdapter.InsertCommand.Parameters.Add("@ID_POST", SqlDbType.Int).Value = comboBox_post_pri.SelectedValue;
+            SQLAdapter.InsertCommand.Parameters.Add("@ID_MOL", SqlDbType.Int).Value = comboBox_mol_pri.SelectedValue;
+            SQLAdapter.InsertCommand.Parameters.Add("@ID_PROD", SqlDbType.Int).Value = comboBox_prod_pri.SelectedValue;
+            SQLAdapter.InsertCommand.Parameters.Add("@KOLVO", SqlDbType.Int).Value = numericUpDown_pri_kolvo.Value;
+            SQLAdapter.InsertCommand.Parameters.Add("@CENA", SqlDbType.Decimal).Value = textBox_pri_cena.Text;
+            SQLAdapter.InsertCommand.Parameters.Add("@DATE", SqlDbType.DateTime).Value = DateTime.Now;
+
+            try
+            {
+                SQLAdapter.InsertCommand.ExecuteNonQuery(); // выполним запрос
+                // если удачно то...
+                if (kolvo != 0)
+                {
+                    strSQL = " UPDATE nalichie SET kolvo = kolvo + @KOLVO WHERE id_product = @ID_PROD";
+                    SQLAdapter.UpdateCommand = new SqlCommand(strSQL, cn);  // новая команда создана
+                    SQLAdapter.UpdateCommand.Parameters.Add("@ID_PROD", SqlDbType.Int).Value = comboBox_prod_pri.SelectedValue;
+                    SQLAdapter.UpdateCommand.Parameters.Add("@KOLVO", SqlDbType.Int).Value = numericUpDown_pri_kolvo.Value;
+                    try
+                    {
+                        SQLAdapter.UpdateCommand.ExecuteNonQuery(); // выполним запрос
+                    }
+                    catch (Exception ex)
+                    {
+                        // если не удачно обшика с инфой
+                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    strSQL = " INSERT INTO nalichie VALUES (@ID_PROD, @KOLVO) ";
+                    SQLAdapter.InsertCommand = new SqlCommand(strSQL, cn);  // новая команда создана
+                    SQLAdapter.InsertCommand.Parameters.Add("@ID_PROD", SqlDbType.Int).Value = comboBox_prod_pri.SelectedValue;
+                    SQLAdapter.InsertCommand.Parameters.Add("@KOLVO", SqlDbType.Int).Value = numericUpDown_pri_kolvo.Value;
+                    try
+                    {
+                        SQLAdapter.InsertCommand.ExecuteNonQuery(); // выполним запрос
+                    }
+                    catch (Exception ex)
+                    {
+                        // если не удачно обшика с инфой
+                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+                load_prihod();           // обновим таблицу
+                MessageBox.Show("Успешно добавлен!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                // если не удачно обшика с инфой
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button_Click(object sender, EventArgs e)
+        {
+            // --- [ ОБНОВЛЕНИЕ ] ---   ПРИЁМ ПРОДУКТОВ
+
+            if (ds.Tables["PRIHOD"].Rows.Count > 0)              // проверка на наличие строк в таблице
+            {
+                // проверим все поля на заполненность
+                if (textBox_pri_cena.Text == "" || comboBox_prod_pri.Text == ""
+                || comboBox_post_pri.Text == "" || comboBox_mol_pri.Text == "" || numericUpDown_pri_kolvo.Value <= 0)
+                {
+                    MessageBox.Show("Заполните все поля", "Обновление", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // вытащим прежнее значение количество товара из прихода перед тем как заменить его новым
+                int kolvo = 0;
+                strSQL = "SELECT kolvo AS 'kolvo' FROM prihod WHERE id_prihod = @ID_P";
+                using (SqlCommand cm = new SqlCommand(strSQL, cn))
+                {
+                    cm.Parameters.Add("@ID_P", SqlDbType.Int).Value =
+                        Convert.ToInt32(ds.Tables["PRIHOD"].Rows[dataGridView3.CurrentRow.Index][0]);
+                    try
+                    {
+                        using (SqlDataReader rd = cm.ExecuteReader())
+                        {
+                            while (rd.Read())
+                            {
+                                kolvo = Convert.ToInt32(rd["kolvo"]);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+                // расчитаем разницу между старым и новым значением колличества продукта перед тем как изменить 
+                // значение количества в таблице наличие
+                kolvo = kolvo - Convert.ToInt32(numericUpDown_pri_kolvo.Value);
+
+                // запрос на обновление
+                strSQL = " UPDATE prihod SET id_post = @ID_POST, id_mol = @ID_MOL, id_product = @ID_PROD, " +
+                         " kolvo = @KOLVO, cena_zakup = @CENA, date_time = @DATE WHERE id_prihod = @ID_P; " +
+                         " UPDATE nalichie SET kolvo = kolvo - @KOLVO_DELTA WHERE id_product = @ID_PROD";
+
+                SQLAdapter.UpdateCommand = new SqlCommand(strSQL, cn);  // команда для обноления создана
+                // зададим значения параметрам 
+                SQLAdapter.UpdateCommand.Parameters.Add("@ID_POST", SqlDbType.Int).Value = comboBox_post_pri.SelectedValue;
+                SQLAdapter.UpdateCommand.Parameters.Add("@ID_MOL", SqlDbType.Int).Value = comboBox_mol_pri.SelectedValue;
+                SQLAdapter.UpdateCommand.Parameters.Add("@ID_PROD", SqlDbType.Int).Value = comboBox_prod_pri.SelectedValue;
+                SQLAdapter.UpdateCommand.Parameters.Add("@KOLVO", SqlDbType.Int).Value = numericUpDown_pri_kolvo.Value;
+                SQLAdapter.UpdateCommand.Parameters.Add("@KOLVO_DELTA", SqlDbType.Int).Value = kolvo;
+                SQLAdapter.UpdateCommand.Parameters.Add("@CENA", SqlDbType.Decimal).Value = textBox_pri_cena.Text;
+                SQLAdapter.UpdateCommand.Parameters.Add("@DATE", SqlDbType.DateTime).Value = DateTime.Now;
+                SQLAdapter.UpdateCommand.Parameters.Add("@ID_P", SqlDbType.Int).Value =
+                    Convert.ToInt32(ds.Tables["PRIHOD"].Rows[dataGridView3.CurrentRow.Index][0]);
+                try
+                {
+                    SQLAdapter.UpdateCommand.ExecuteNonQuery(); // выполним запрос
+                    // если удачно то...
+                    load_prihod();           // обновим таблицу
+                    MessageBox.Show("Запись успешно обновлена!", "Обновление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    // если запрос выполнился не удачно то ошибка с инфой
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+                MessageBox.Show("Таблица пуста", "Обновление", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

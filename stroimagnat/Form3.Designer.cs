@@ -78,17 +78,18 @@
             this.button10 = new System.Windows.Forms.Button();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button11 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.button12 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.textBox_prod_cena = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox_prod_ediz = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.textBox_prod_name = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.button21 = new System.Windows.Forms.Button();
@@ -100,7 +101,6 @@
             this.dataGridView7 = new System.Windows.Forms.DataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
             this.button19 = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button25 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.textBox_mol_tel = new System.Windows.Forms.TextBox();
@@ -111,20 +111,23 @@
             this.label14 = new System.Windows.Forms.Label();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.button16 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox_post_bank = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.textBox_post_tel = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox_post_adres = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox_post_name = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox_post_bank = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBox_post_name = new System.Windows.Forms.TextBox();
+            this.textBox_post_tel = new System.Windows.Forms.TextBox();
+            this.textBox_post_adres = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.visualStyler1 = new SkinSoft.VisualStyler.VisualStyler(this.components);
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.panel0.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -141,18 +144,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_vid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.panel4.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
             this.panel7.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.panel6.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).BeginInit();
+            this.tableLayoutPanel7.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel0
@@ -299,7 +305,7 @@
             this.tableLayoutPanel2.Controls.Add(this.button9, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.button, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.button8, 2, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(28, 144);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(27, 142);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -579,10 +585,9 @@
             this.panel2.Controls.Add(this.numericUpDown_vid);
             this.panel2.Controls.Add(this.button10);
             this.panel2.Controls.Add(this.dataGridView5);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 72);
+            this.panel2.Location = new System.Drawing.Point(5, 110);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 492);
+            this.panel2.Size = new System.Drawing.Size(18, 25);
             this.panel2.TabIndex = 20;
             this.panel2.Visible = false;
             // 
@@ -664,120 +669,140 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.button11);
+            this.panel4.Controls.Add(this.tableLayoutPanel4);
+            this.panel4.Controls.Add(this.tableLayoutPanel3);
             this.panel4.Controls.Add(this.dataGridView1);
-            this.panel4.Controls.Add(this.groupBox1);
-            this.panel4.Location = new System.Drawing.Point(3, 143);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 72);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(25, 21);
+            this.panel4.Size = new System.Drawing.Size(800, 492);
             this.panel4.TabIndex = 20;
             this.panel4.Visible = false;
             // 
-            // button11
+            // tableLayoutPanel4
             // 
-            this.button11.Location = new System.Drawing.Point(591, 212);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(87, 23);
-            this.button11.TabIndex = 15;
-            this.button11.Text = "Удалить";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(44, 24);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(355, 454);
-            this.dataGridView1.TabIndex = 13;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button12);
-            this.groupBox1.Controls.Add(this.button15);
-            this.groupBox1.Controls.Add(this.textBox_prod_cena);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox_prod_ediz);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox_prod_name);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(438, 34);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(274, 163);
-            this.groupBox1.TabIndex = 14;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Добавление/Обновление";
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.Controls.Add(this.button12, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.button15, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.button11, 2, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(27, 87);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(246, 43);
+            this.tableLayoutPanel4.TabIndex = 17;
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(153, 126);
+            this.button12.Location = new System.Drawing.Point(85, 3);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(100, 23);
-            this.button12.TabIndex = 8;
+            this.button12.Size = new System.Drawing.Size(75, 33);
+            this.button12.TabIndex = 25;
             this.button12.Text = "Обновить";
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button15
             // 
-            this.button15.Location = new System.Drawing.Point(153, 97);
+            this.button15.Location = new System.Drawing.Point(3, 3);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(100, 23);
-            this.button15.TabIndex = 7;
+            this.button15.Size = new System.Drawing.Size(75, 33);
+            this.button15.TabIndex = 24;
             this.button15.Text = "Добавить";
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
-            // textBox_prod_cena
+            // button11
             // 
-            this.textBox_prod_cena.Location = new System.Drawing.Point(117, 71);
-            this.textBox_prod_cena.Name = "textBox_prod_cena";
-            this.textBox_prod_cena.Size = new System.Drawing.Size(136, 20);
-            this.textBox_prod_cena.TabIndex = 6;
+            this.button11.Location = new System.Drawing.Point(167, 3);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(75, 33);
+            this.button11.TabIndex = 15;
+            this.button11.Text = "Удалить";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
-            // label3
+            // tableLayoutPanel3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Цена за единицу";
-            // 
-            // textBox_prod_ediz
-            // 
-            this.textBox_prod_ediz.Location = new System.Drawing.Point(117, 45);
-            this.textBox_prod_ediz.Name = "textBox_prod_ediz";
-            this.textBox_prod_ediz.Size = new System.Drawing.Size(136, 20);
-            this.textBox_prod_ediz.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Единица измерения";
-            // 
-            // textBox_prod_name
-            // 
-            this.textBox_prod_name.Location = new System.Drawing.Point(117, 19);
-            this.textBox_prod_name.Name = "textBox_prod_name";
-            this.textBox_prod_name.Size = new System.Drawing.Size(136, 20);
-            this.textBox_prod_name.TabIndex = 2;
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.textBox_prod_cena, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.textBox_prod_ediz, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.textBox_prod_name, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(12, 6);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(261, 82);
+            this.tableLayoutPanel3.TabIndex = 16;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 22);
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 13);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 18;
             this.label1.Text = "Наименование";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Единица измерения";
+            // 
+            // textBox_prod_cena
+            // 
+            this.textBox_prod_cena.Location = new System.Drawing.Point(118, 55);
+            this.textBox_prod_cena.Name = "textBox_prod_cena";
+            this.textBox_prod_cena.Size = new System.Drawing.Size(136, 20);
+            this.textBox_prod_cena.TabIndex = 23;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 13);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Цена за единицу";
+            // 
+            // textBox_prod_ediz
+            // 
+            this.textBox_prod_ediz.Location = new System.Drawing.Point(118, 29);
+            this.textBox_prod_ediz.Name = "textBox_prod_ediz";
+            this.textBox_prod_ediz.Size = new System.Drawing.Size(136, 20);
+            this.textBox_prod_ediz.TabIndex = 21;
+            // 
+            // textBox_prod_name
+            // 
+            this.textBox_prod_name.Location = new System.Drawing.Point(118, 3);
+            this.textBox_prod_name.Name = "textBox_prod_name";
+            this.textBox_prod_name.Size = new System.Drawing.Size(136, 20);
+            this.textBox_prod_name.TabIndex = 19;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(279, 6);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(518, 483);
+            this.dataGridView1.TabIndex = 13;
             // 
             // panel5
             // 
@@ -797,18 +822,18 @@
             this.groupBox11.Controls.Add(this.label26);
             this.groupBox11.Controls.Add(this.dateTimePicker2);
             this.groupBox11.Controls.Add(this.dateTimePicker1);
-            this.groupBox11.Location = new System.Drawing.Point(15, 16);
+            this.groupBox11.Location = new System.Drawing.Point(12, 6);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(767, 55);
+            this.groupBox11.Size = new System.Drawing.Size(259, 96);
             this.groupBox11.TabIndex = 5;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Фильтрация по дате";
             // 
             // button21
             // 
-            this.button21.Location = new System.Drawing.Point(621, 20);
+            this.button21.Location = new System.Drawing.Point(30, 71);
             this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(104, 19);
+            this.button21.Size = new System.Drawing.Size(224, 19);
             this.button21.TabIndex = 6;
             this.button21.Text = "Отмена";
             this.button21.UseVisualStyleBackColor = true;
@@ -816,9 +841,9 @@
             // 
             // button20
             // 
-            this.button20.Location = new System.Drawing.Point(481, 20);
+            this.button20.Location = new System.Drawing.Point(177, 19);
             this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(104, 19);
+            this.button20.Size = new System.Drawing.Size(78, 46);
             this.button20.TabIndex = 5;
             this.button20.Text = "Показать";
             this.button20.UseVisualStyleBackColor = true;
@@ -827,7 +852,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(248, 26);
+            this.label28.Location = new System.Drawing.Point(3, 52);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(21, 13);
             this.label28.TabIndex = 4;
@@ -836,7 +861,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(6, 26);
+            this.label26.Location = new System.Drawing.Point(11, 26);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(14, 13);
             this.label26.TabIndex = 2;
@@ -844,16 +869,16 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(275, 20);
+            this.dateTimePicker2.Location = new System.Drawing.Point(31, 46);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(140, 20);
             this.dateTimePicker2.TabIndex = 1;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(26, 20);
+            this.dateTimePicker1.Location = new System.Drawing.Point(31, 20);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(140, 20);
             this.dateTimePicker1.TabIndex = 0;
             // 
             // dataGridView7
@@ -861,16 +886,16 @@
             this.dataGridView7.AllowUserToAddRows = false;
             this.dataGridView7.AllowUserToDeleteRows = false;
             this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView7.Location = new System.Drawing.Point(16, 77);
+            this.dataGridView7.Location = new System.Drawing.Point(275, 6);
             this.dataGridView7.Name = "dataGridView7";
             this.dataGridView7.ReadOnly = true;
-            this.dataGridView7.Size = new System.Drawing.Size(768, 390);
+            this.dataGridView7.Size = new System.Drawing.Size(522, 480);
             this.dataGridView7.TabIndex = 4;
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.button19);
-            this.panel7.Controls.Add(this.groupBox4);
+            this.panel7.Controls.Add(this.tableLayoutPanel8);
+            this.panel7.Controls.Add(this.tableLayoutPanel7);
             this.panel7.Controls.Add(this.dataGridView4);
             this.panel7.Location = new System.Drawing.Point(5, 216);
             this.panel7.Name = "panel7";
@@ -880,36 +905,19 @@
             // 
             // button19
             // 
-            this.button19.Location = new System.Drawing.Point(673, 180);
+            this.button19.Location = new System.Drawing.Point(165, 3);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(100, 23);
+            this.button19.Size = new System.Drawing.Size(75, 33);
             this.button19.TabIndex = 19;
             this.button19.Text = "Удалить";
             this.button19.UseVisualStyleBackColor = true;
             this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.button25);
-            this.groupBox4.Controls.Add(this.button26);
-            this.groupBox4.Controls.Add(this.textBox_mol_tel);
-            this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Controls.Add(this.textBox_mol_adres);
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.textBox_mol_fio);
-            this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Location = new System.Drawing.Point(522, 11);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(263, 163);
-            this.groupBox4.TabIndex = 18;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Добавление/Обновление";
-            // 
             // button25
             // 
-            this.button25.Location = new System.Drawing.Point(151, 126);
+            this.button25.Location = new System.Drawing.Point(84, 3);
             this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(100, 23);
+            this.button25.Size = new System.Drawing.Size(75, 33);
             this.button25.TabIndex = 8;
             this.button25.Text = "Обновить";
             this.button25.UseVisualStyleBackColor = true;
@@ -917,9 +925,9 @@
             // 
             // button26
             // 
-            this.button26.Location = new System.Drawing.Point(151, 97);
+            this.button26.Location = new System.Drawing.Point(3, 3);
             this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(100, 23);
+            this.button26.Size = new System.Drawing.Size(75, 33);
             this.button26.TabIndex = 7;
             this.button26.Text = "Добавить";
             this.button26.UseVisualStyleBackColor = true;
@@ -927,15 +935,15 @@
             // 
             // textBox_mol_tel
             // 
-            this.textBox_mol_tel.Location = new System.Drawing.Point(108, 71);
+            this.textBox_mol_tel.Location = new System.Drawing.Point(61, 55);
             this.textBox_mol_tel.Name = "textBox_mol_tel";
-            this.textBox_mol_tel.Size = new System.Drawing.Size(143, 20);
+            this.textBox_mol_tel.Size = new System.Drawing.Size(179, 20);
             this.textBox_mol_tel.TabIndex = 6;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 74);
+            this.label12.Location = new System.Drawing.Point(3, 52);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(52, 13);
             this.label12.TabIndex = 5;
@@ -943,15 +951,15 @@
             // 
             // textBox_mol_adres
             // 
-            this.textBox_mol_adres.Location = new System.Drawing.Point(108, 45);
+            this.textBox_mol_adres.Location = new System.Drawing.Point(61, 29);
             this.textBox_mol_adres.Name = "textBox_mol_adres";
-            this.textBox_mol_adres.Size = new System.Drawing.Size(143, 20);
+            this.textBox_mol_adres.Size = new System.Drawing.Size(179, 20);
             this.textBox_mol_adres.TabIndex = 4;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 48);
+            this.label13.Location = new System.Drawing.Point(3, 26);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(38, 13);
             this.label13.TabIndex = 3;
@@ -959,15 +967,15 @@
             // 
             // textBox_mol_fio
             // 
-            this.textBox_mol_fio.Location = new System.Drawing.Point(108, 19);
+            this.textBox_mol_fio.Location = new System.Drawing.Point(61, 3);
             this.textBox_mol_fio.Name = "textBox_mol_fio";
-            this.textBox_mol_fio.Size = new System.Drawing.Size(143, 20);
+            this.textBox_mol_fio.Size = new System.Drawing.Size(179, 20);
             this.textBox_mol_fio.TabIndex = 2;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(7, 22);
+            this.label14.Location = new System.Drawing.Point(3, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(37, 13);
             this.label14.TabIndex = 1;
@@ -978,151 +986,207 @@
             this.dataGridView4.AllowUserToAddRows = false;
             this.dataGridView4.AllowUserToDeleteRows = false;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(18, 6);
+            this.dataGridView4.Location = new System.Drawing.Point(258, 6);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.Size = new System.Drawing.Size(349, 454);
+            this.dataGridView4.Size = new System.Drawing.Size(539, 483);
             this.dataGridView4.TabIndex = 17;
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.button16);
-            this.panel6.Controls.Add(this.groupBox2);
+            this.panel6.Controls.Add(this.tableLayoutPanel5);
+            this.panel6.Controls.Add(this.tableLayoutPanel6);
             this.panel6.Controls.Add(this.dataGridView2);
-            this.panel6.Location = new System.Drawing.Point(3, 187);
+            this.panel6.Location = new System.Drawing.Point(5, 185);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(25, 23);
+            this.panel6.Size = new System.Drawing.Size(10, 25);
             this.panel6.TabIndex = 22;
             this.panel6.Visible = false;
             // 
-            // button16
+            // tableLayoutPanel5
             // 
-            this.button16.Location = new System.Drawing.Point(615, 231);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(100, 23);
-            this.button16.TabIndex = 17;
-            this.button16.Text = "Удалить";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.textBox_post_bank);
-            this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Controls.Add(this.button17);
-            this.groupBox2.Controls.Add(this.button18);
-            this.groupBox2.Controls.Add(this.textBox_post_tel);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox_post_adres);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox_post_name);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(463, 40);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(263, 185);
-            this.groupBox2.TabIndex = 16;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Добавление/Обновление";
-            // 
-            // textBox_post_bank
-            // 
-            this.textBox_post_bank.Location = new System.Drawing.Point(127, 97);
-            this.textBox_post_bank.Name = "textBox_post_bank";
-            this.textBox_post_bank.Size = new System.Drawing.Size(125, 20);
-            this.textBox_post_bank.TabIndex = 10;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(7, 100);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(93, 13);
-            this.label21.TabIndex = 9;
-            this.label21.Text = "Банковский счёт";
-            // 
-            // button17
-            // 
-            this.button17.Location = new System.Drawing.Point(152, 152);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(100, 23);
-            this.button17.TabIndex = 8;
-            this.button17.Text = "Обновить";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
-            // 
-            // button18
-            // 
-            this.button18.Location = new System.Drawing.Point(152, 123);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(100, 23);
-            this.button18.TabIndex = 7;
-            this.button18.Text = "Добавить";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
-            // 
-            // textBox_post_tel
-            // 
-            this.textBox_post_tel.Location = new System.Drawing.Point(127, 71);
-            this.textBox_post_tel.Name = "textBox_post_tel";
-            this.textBox_post_tel.Size = new System.Drawing.Size(125, 20);
-            this.textBox_post_tel.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 74);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Телефон";
-            // 
-            // textBox_post_adres
-            // 
-            this.textBox_post_adres.Location = new System.Drawing.Point(127, 45);
-            this.textBox_post_adres.Name = "textBox_post_adres";
-            this.textBox_post_adres.Size = new System.Drawing.Size(125, 20);
-            this.textBox_post_adres.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 48);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Адрес";
-            // 
-            // textBox_post_name
-            // 
-            this.textBox_post_name.Location = new System.Drawing.Point(127, 19);
-            this.textBox_post_name.Name = "textBox_post_name";
-            this.textBox_post_name.Size = new System.Drawing.Size(125, 20);
-            this.textBox_post_name.TabIndex = 2;
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.label6, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label5, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.textBox_post_bank, 1, 3);
+            this.tableLayoutPanel5.Controls.Add(this.label4, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.label21, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.textBox_post_name, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.textBox_post_tel, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.textBox_post_adres, 1, 1);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(12, 6);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 4;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(256, 108);
+            this.tableLayoutPanel5.TabIndex = 30;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 22);
+            this.label6.Location = new System.Drawing.Point(3, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 13);
-            this.label6.TabIndex = 1;
+            this.label6.TabIndex = 18;
             this.label6.Text = "Наименование";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Адрес";
+            // 
+            // textBox_post_bank
+            // 
+            this.textBox_post_bank.Location = new System.Drawing.Point(102, 81);
+            this.textBox_post_bank.Name = "textBox_post_bank";
+            this.textBox_post_bank.Size = new System.Drawing.Size(147, 20);
+            this.textBox_post_bank.TabIndex = 27;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 13);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Телефон";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(3, 78);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(93, 13);
+            this.label21.TabIndex = 26;
+            this.label21.Text = "Банковский счёт";
+            // 
+            // textBox_post_name
+            // 
+            this.textBox_post_name.Location = new System.Drawing.Point(102, 3);
+            this.textBox_post_name.Name = "textBox_post_name";
+            this.textBox_post_name.Size = new System.Drawing.Size(147, 20);
+            this.textBox_post_name.TabIndex = 19;
+            // 
+            // textBox_post_tel
+            // 
+            this.textBox_post_tel.Location = new System.Drawing.Point(102, 55);
+            this.textBox_post_tel.Name = "textBox_post_tel";
+            this.textBox_post_tel.Size = new System.Drawing.Size(147, 20);
+            this.textBox_post_tel.TabIndex = 23;
+            // 
+            // textBox_post_adres
+            // 
+            this.textBox_post_adres.Location = new System.Drawing.Point(102, 29);
+            this.textBox_post_adres.Name = "textBox_post_adres";
+            this.textBox_post_adres.Size = new System.Drawing.Size(147, 20);
+            this.textBox_post_adres.TabIndex = 21;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 3;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.Controls.Add(this.button18, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.button17, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.button16, 2, 0);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(21, 115);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(244, 42);
+            this.tableLayoutPanel6.TabIndex = 29;
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(3, 3);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(75, 33);
+            this.button18.TabIndex = 24;
+            this.button18.Text = "Добавить";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(84, 3);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(75, 33);
+            this.button17.TabIndex = 25;
+            this.button17.Text = "Обновить";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(165, 3);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(75, 33);
+            this.button16.TabIndex = 17;
+            this.button16.Text = "Удалить";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(37, 26);
+            this.dataGridView2.Location = new System.Drawing.Point(271, 6);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(397, 454);
+            this.dataGridView2.Size = new System.Drawing.Size(526, 480);
             this.dataGridView2.TabIndex = 15;
             // 
             // visualStyler1
             // 
             this.visualStyler1.License = ((SkinSoft.VisualStyler.Licensing.VisualStylerLicense)(resources.GetObject("visualStyler1.License")));
             this.visualStyler1.LoadVisualStyle(null, "OSX (Leopard).vssf");
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel7.Controls.Add(this.label14, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.label13, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.label12, 0, 2);
+            this.tableLayoutPanel7.Controls.Add(this.textBox_mol_fio, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.textBox_mol_adres, 1, 1);
+            this.tableLayoutPanel7.Controls.Add(this.textBox_mol_tel, 1, 2);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(12, 6);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 3;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(245, 80);
+            this.tableLayoutPanel7.TabIndex = 20;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 3;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel8.Controls.Add(this.button26, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.button25, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.button19, 2, 0);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(12, 92);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(245, 40);
+            this.tableLayoutPanel8.TabIndex = 21;
             // 
             // Form3
             // 
@@ -1166,22 +1230,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_vid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             this.panel4.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
             this.panel7.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.panel6.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).EndInit();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            this.tableLayoutPanel8.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1227,15 +1294,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.TextBox textBox_prod_cena;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox_prod_ediz;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox_prod_name;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
@@ -1248,20 +1306,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridView dataGridView7;
         private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox_post_bank;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.TextBox textBox_post_tel;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox_post_adres;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox_post_name;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button25;
         private System.Windows.Forms.Button button26;
         private System.Windows.Forms.TextBox textBox_mol_tel;
@@ -1284,6 +1330,30 @@
         private System.Windows.Forms.NumericUpDown numericUpDown_vid;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox_prod_cena;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox_prod_ediz;
+        private System.Windows.Forms.TextBox textBox_prod_name;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox_post_bank;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox textBox_post_name;
+        private System.Windows.Forms.TextBox textBox_post_tel;
+        private System.Windows.Forms.TextBox textBox_post_adres;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
 
     }
 }

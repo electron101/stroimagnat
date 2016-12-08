@@ -669,5 +669,157 @@ namespace stroimagnat
             else
                 MessageBox.Show("Таблица пуста", "Обновление", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            // --- [ ДОБАВЛЕНИЕ В СПИСОК ВЫДАЧИ ] ---   
+
+            if (ds.Tables["OTPUSK"].Rows.Count > 0)              // проверка на наличие строк в таблице
+            {
+                // если количество больше 0
+                if (Convert.ToInt32(ds.Tables["OTPUSK"].Rows[dataGridView5.CurrentRow.Index][2]) > 0)
+                {
+                    // если количесвто добовляемых меньше или = количеству в наличии
+                    if (Convert.ToInt32(numericUpDown_vid.Value) <=
+                        Convert.ToInt32(ds.Tables["OTPUSK"].Rows[dataGridView5.CurrentRow.Index][2]))
+                    {
+                        if (ds.Tables["SPIS_VID"].Rows.Count > 0)    // елси в списке выдачи есть хотя бы один продукт
+                        {
+                            bool _id = false;
+                            // пройдёмся по всей таблице списка выдачи
+                            for (int i = 0; i < ds.Tables["SPIS_VID"].Rows.Count; i++)
+                            {
+                                // если эта книга уже есть в списке выдачи
+                                if (Convert.ToInt32(ds.Tables["OTPUSK"].Rows[dataGridView5.CurrentRow.Index][0]) ==
+                                    Convert.ToInt32(ds.Tables["SPIS_VID"].Rows[i][0]))
+                                {
+                                    // увеличим колличество продукта не добавляя новую строку
+                                    ds.Tables["SPIS_VID"].Rows[i][2] =
+                                        Convert.ToInt32(ds.Tables["SPIS_VID"].Rows[i][2]) +
+                                        Convert.ToInt32(numericUpDown_vid.Value);
+                                    _id = true;             // ID найден, количество увеличено
+                                    break;
+                                }
+                            }
+
+                            if (_id == false)   // если продукт не был в списке выдачи то добавим его
+                                ds.Tables["SPIS_VID"].Rows.Add(ds.Tables["OTPUSK"].Rows[dataGridView5.CurrentRow.Index][0],
+                                                           ds.Tables["OTPUSK"].Rows[dataGridView5.CurrentRow.Index][1],
+                                                           numericUpDown_vid.Value,
+                                                           ds.Tables["OTPUSK"].Rows[dataGridView5.CurrentRow.Index][3]);
+                        }
+                        else        // добавим книгку
+                            ds.Tables["SPIS_VID"].Rows.Add(ds.Tables["OTPUSK"].Rows[dataGridView5.CurrentRow.Index][0],
+                                                           ds.Tables["OTPUSK"].Rows[dataGridView5.CurrentRow.Index][1],
+                                                           numericUpDown_vid.Value,
+                                                           ds.Tables["OTPUSK"].Rows[dataGridView5.CurrentRow.Index][3]);
+
+                        // уменьшим колличество в наличии на велечину только что добавленного продукта
+                        ds.Tables["OTPUSK"].Rows[dataGridView5.CurrentRow.Index][2] =
+                                Convert.ToInt32(ds.Tables["OTPUSK"].Rows[dataGridView5.CurrentRow.Index][2]) -
+                                Convert.ToInt32(numericUpDown_vid.Value);
+                    }
+                    else
+                        MessageBox.Show("Столько нет!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                    MessageBox.Show("Этоого продукта сейчас нет в наличии", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Таблица пуста", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            // --- [ УДАЛЕНИЕ ИЗ СПИСОКА ВЫДАЧИ ] ---
+
+            if (ds.Tables["SPIS_VID"].Rows.Count > 0)              // проверка на наличие строк в таблице
+            {
+                // если колличество продуктов в списке выдачи больше 0
+                if (Convert.ToInt32(ds.Tables["SPIS_VID"].Rows[dataGridView6.CurrentRow.Index][2]) > 0)
+                {
+                    // если удаляемых продуктов меньше или = чем в наличии в списке выдачи
+                    if (Convert.ToInt32(numericUpDown_vid2.Value) <=
+                        Convert.ToInt32(ds.Tables["SPIS_VID"].Rows[dataGridView6.CurrentRow.Index][2]))
+                    {
+                        if (ds.Tables["OTPUSK"].Rows.Count > 0)    // елси в таблице поиска есть хотя бы один продукт
+                        {
+                            // идём по всей таблице отпуска
+                            for (int i = 0; i < ds.Tables["OTPUSK"].Rows.Count; i++)
+                            {
+                                // если такой продукт есть сразу в дувх таблицах
+                                if (Convert.ToInt32(ds.Tables["SPIS_VID"].Rows[dataGridView6.CurrentRow.Index][0]) ==
+                                    Convert.ToInt32(ds.Tables["OTPUSK"].Rows[i][0]))
+                                {
+                                    // добавим к количеству продукта в отпуске количество только что удалённое из списка выдачи
+                                    ds.Tables["OTPUSK"].Rows[i][2] =
+                                        Convert.ToInt32(ds.Tables["OTPUSK"].Rows[i][2]) +
+                                        Convert.ToInt32(numericUpDown_vid2.Value);
+                                    // уменьшим количесвто в списке выдачи на удалённое 
+                                    ds.Tables["SPIS_VID"].Rows[dataGridView6.CurrentRow.Index][2] =
+                                        Convert.ToInt32(ds.Tables["SPIS_VID"].Rows[dataGridView6.CurrentRow.Index][2]) -
+                                        Convert.ToInt32(numericUpDown_vid2.Value);
+
+                                    break;
+                                }
+                            }
+                        }
+                        // если у продукта не осталось количества то удалить запись
+
+                        if (Convert.ToInt32(ds.Tables["SPIS_VID"].Rows[dataGridView6.CurrentRow.Index][2]) == 0)
+                            ds.Tables["SPIS_VID"].Rows.RemoveAt(dataGridView6.CurrentRow.Index);
+                    }
+                    else
+                        MessageBox.Show("Столько нет!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+                MessageBox.Show("Таблица пуста", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            if (ds.Tables["SPIS_VID"].Rows.Count > 0)              // проверка на наличие строк в таблице
+            {
+                strSQL = " INSERT INTO rashod VALUES (@ID_P, @KOLVO, @DATE_VID); " +
+                         " UPDATE nalichie SET kolvo -= @KOLVO WHERE id_product = @ID_P; ";
+
+                using (SqlCommand cm = new SqlCommand(strSQL, cn))
+                {
+                    try
+                    {
+                        for (int i = 0; i < ds.Tables["SPIS_VID"].Rows.Count; i++)
+                        {
+                            cm.Parameters.Add("@ID_P", SqlDbType.Int).Value =
+                                Convert.ToInt32(ds.Tables["SPIS_VID"].Rows[i][0]);
+                            cm.Parameters.Add("@DATE_VID", SqlDbType.DateTime).Value = DateTime.Now;
+                            cm.Parameters.Add("@KOLVO", SqlDbType.Int).Value =
+                                Convert.ToInt32(ds.Tables["SPIS_VID"].Rows[i][2]);
+
+                            try
+                            {
+                                cm.ExecuteNonQuery();
+                                cm.Parameters.Clear();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                MessageBox.Show("Все продукты выданы!", "Выдача", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ds.Tables["SPIS_VID"].Rows.Clear();
+                load_prihod();
+            }
+
+            else
+                MessageBox.Show("Нет продуктов для выдачи", "Выдача", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

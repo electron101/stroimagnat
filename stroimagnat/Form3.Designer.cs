@@ -251,10 +251,9 @@
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.dataGridView3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 72);
+            this.panel1.Location = new System.Drawing.Point(12, 78);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 492);
+            this.panel1.Size = new System.Drawing.Size(38, 25);
             this.panel1.TabIndex = 16;
             this.panel1.Visible = false;
             // 
@@ -510,9 +509,10 @@
             // 
             this.panel2.Controls.Add(this.groupBox6);
             this.panel2.Controls.Add(this.groupBox5);
-            this.panel2.Location = new System.Drawing.Point(12, 119);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 72);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(29, 18);
+            this.panel2.Size = new System.Drawing.Size(800, 492);
             this.panel2.TabIndex = 20;
             this.panel2.Visible = false;
             // 
@@ -549,6 +549,7 @@
             this.button14.TabIndex = 9;
             this.button14.Text = "Удалить из списка";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button13
             // 
@@ -558,6 +559,7 @@
             this.button13.TabIndex = 6;
             this.button13.Text = "Перейти к выдаче";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // numericUpDown_vid2
             // 
@@ -622,6 +624,7 @@
             this.button10.TabIndex = 5;
             this.button10.Text = "Добавить в список";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // dataGridView5
             // 

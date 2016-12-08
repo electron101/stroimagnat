@@ -140,6 +140,7 @@ namespace stroimagnat
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            label17.Text = "Приход материала";
             panel3.Dock = DockStyle.Fill;
 
             //
@@ -297,6 +298,7 @@ namespace stroimagnat
 
         private void button1_Click(object sender, EventArgs e)
         {
+            label17.Text = (sender as Button).Text;
             // запустить форму прихода материалов
             panel3.Visible = false;
             panel1.Dock = DockStyle.Fill;
@@ -305,6 +307,7 @@ namespace stroimagnat
 
         private void button4_Click(object sender, EventArgs e)
         {
+            label17.Text = (sender as Button).Text;
             // запустить форму материалов
             panel3.Visible = false;
             panel4.Dock = DockStyle.Fill;
@@ -313,6 +316,7 @@ namespace stroimagnat
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            label17.Text = (sender as Button).Text;
             // запустить форму отпуска материалов
             panel3.Visible = false;
             panel2.Dock = DockStyle.Fill;
@@ -321,6 +325,7 @@ namespace stroimagnat
 
         private void button3_Click(object sender, EventArgs e)
         {
+            label17.Text = (sender as Button).Text;
             // запустить форму истории выдачи
             panel3.Visible = false;
             panel5.Dock = DockStyle.Fill;
@@ -329,6 +334,7 @@ namespace stroimagnat
 
         private void button6_Click(object sender, EventArgs e)
         {
+            label17.Text = (sender as Button).Text;
             // запустить форму поставщиков
             panel3.Visible = false;
             panel6.Dock = DockStyle.Fill;
@@ -337,6 +343,7 @@ namespace stroimagnat
 
         private void button5_Click(object sender, EventArgs e)
         {
+            label17.Text = (sender as Button).Text;
             // запустить форму ответственных
             panel3.Visible = false;
             panel7.Dock = DockStyle.Fill;
@@ -1176,6 +1183,19 @@ namespace stroimagnat
             }
             else
                 MessageBox.Show("Таблица пуста", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            label17.Text = "Главная";
+            panel3.Visible = true;
+            panel3.Dock = DockStyle.Fill;
+            panel1.Visible = false;
+            panel2.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
+            panel6.Visible = false;
+            panel7.Visible = false;
         }
     }
 }

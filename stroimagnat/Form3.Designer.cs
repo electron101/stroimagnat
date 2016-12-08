@@ -122,6 +122,10 @@
             this.textBox_post_name = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label17 = new System.Windows.Forms.Label();
+            this.button27 = new System.Windows.Forms.Button();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel0.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox12.SuspendLayout();
@@ -148,13 +152,14 @@
             this.panel6.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel0
             // 
             this.panel0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel0.Controls.Add(this.flowLayoutPanel2);
             this.panel0.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel0.Enabled = false;
             this.panel0.Location = new System.Drawing.Point(0, 0);
             this.panel0.Name = "panel0";
             this.panel0.Size = new System.Drawing.Size(800, 72);
@@ -162,6 +167,7 @@
             // 
             // button7
             // 
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Location = new System.Drawing.Point(697, 3);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 30);
@@ -178,14 +184,15 @@
             this.panel3.Controls.Add(this.button4);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.button1);
-            this.panel3.Location = new System.Drawing.Point(76, 107);
+            this.panel3.Location = new System.Drawing.Point(56, 78);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(712, 444);
+            this.panel3.Size = new System.Drawing.Size(723, 468);
             this.panel3.TabIndex = 15;
             this.panel3.TabStop = true;
             // 
             // button5
             // 
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Location = new System.Drawing.Point(591, 293);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(160, 160);
@@ -196,6 +203,7 @@
             // 
             // button6
             // 
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Location = new System.Drawing.Point(591, 36);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(160, 160);
@@ -206,6 +214,7 @@
             // 
             // button3
             // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Location = new System.Drawing.Point(320, 293);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(160, 160);
@@ -216,6 +225,7 @@
             // 
             // button4
             // 
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Location = new System.Drawing.Point(320, 36);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(160, 160);
@@ -226,6 +236,7 @@
             // 
             // button2
             // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(45, 293);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(160, 160);
@@ -236,6 +247,7 @@
             // 
             // button1
             // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(45, 36);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(160, 160);
@@ -498,6 +510,7 @@
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.flowLayoutPanel1.Controls.Add(this.button7);
+            this.flowLayoutPanel1.Controls.Add(this.button27);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 564);
@@ -846,10 +859,9 @@
             this.panel7.Controls.Add(this.button19);
             this.panel7.Controls.Add(this.groupBox4);
             this.panel7.Controls.Add(this.dataGridView4);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(0, 72);
+            this.panel7.Location = new System.Drawing.Point(5, 216);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(800, 492);
+            this.panel7.Size = new System.Drawing.Size(23, 10);
             this.panel7.TabIndex = 23;
             this.panel7.Visible = false;
             // 
@@ -1094,6 +1106,37 @@
             this.dataGridView2.Size = new System.Drawing.Size(397, 454);
             this.dataGridView2.TabIndex = 15;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label17.Location = new System.Drawing.Point(749, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(48, 13);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "label17";
+            // 
+            // button27
+            // 
+            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button27.Location = new System.Drawing.Point(591, 3);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(100, 30);
+            this.button27.TabIndex = 15;
+            this.button27.Text = "На главную";
+            this.button27.UseVisualStyleBackColor = true;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.label17);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(800, 72);
+            this.flowLayoutPanel2.TabIndex = 0;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1118,6 +1161,7 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form3_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form3_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form3_MouseUp);
+            this.panel0.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.groupBox12.ResumeLayout(false);
@@ -1152,6 +1196,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1253,6 +1299,9 @@
         private System.Windows.Forms.TextBox textBox_mol_fio;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button button27;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
 
     }
 }

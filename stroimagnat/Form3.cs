@@ -30,10 +30,10 @@ namespace stroimagnat
         BindingSource bs_spid_vid = new BindingSource();
         BindingSource bs_rashod = new BindingSource();
         
-        // для перемещиния формы ----------
-        private Point mouseOffset;
-        private bool isMouseDown = false;
-        // --------------------------------
+        //// для перемещиния формы ----------
+        //private Point mouseOffset;
+        //private bool isMouseDown = false;
+        //// --------------------------------
 
         public Form3()
         {
@@ -251,45 +251,45 @@ namespace stroimagnat
 
         }
                 
-        // для перемещения формы мышью ----------------------------------------------
-        //
-        private void Form3_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                isMouseDown = false;
-            }
-        }
+        //// для перемещения формы мышью ----------------------------------------------
+        ////
+        //private void Form3_MouseUp(object sender, MouseEventArgs e)
+        //{
+        //    if (e.Button == MouseButtons.Left)
+        //    {
+        //        isMouseDown = false;
+        //    }
+        //}
        
-        private void Form3_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (isMouseDown)
-            {
-                Point mousePos = Control.MousePosition;
-                mousePos.Offset(mouseOffset.X, mouseOffset.Y);
-                Location = mousePos;
-            }
-        }
+        //private void Form3_MouseMove(object sender, MouseEventArgs e)
+        //{
+        //    if (isMouseDown)
+        //    {
+        //        Point mousePos = Control.MousePosition;
+        //        mousePos.Offset(mouseOffset.X, mouseOffset.Y);
+        //        Location = mousePos;
+        //    }
+        //}
        
-        private void Form3_MouseDown(object sender, MouseEventArgs e)
-        {
-            int xOffset;
-            int yOffset;
+        //private void Form3_MouseDown(object sender, MouseEventArgs e)
+        //{
+        //    int xOffset;
+        //    int yOffset;
 
-            if (e.Button == MouseButtons.Left)
-            {
-                xOffset = -e.X - SystemInformation.FrameBorderSize.Width;
-                yOffset = -e.Y - SystemInformation.CaptionHeight -
-                    SystemInformation.FrameBorderSize.Height;
-                mouseOffset = new Point(xOffset, yOffset);
-                isMouseDown = true;
-            }
-        }
+        //    if (e.Button == MouseButtons.Left)
+        //    {
+        //        xOffset = -e.X - SystemInformation.FrameBorderSize.Width;
+        //        yOffset = -e.Y - SystemInformation.CaptionHeight -
+        //            SystemInformation.FrameBorderSize.Height;
+        //        mouseOffset = new Point(xOffset, yOffset);
+        //        isMouseDown = true;
+        //    }
+        //}
       
-        private void Form3_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape) this.Close();
-        }
+        //private void Form3_KeyUp(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Escape) this.Close();
+        //}
 
         private void button7_Click(object sender, EventArgs e)
         {

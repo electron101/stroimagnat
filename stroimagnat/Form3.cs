@@ -140,7 +140,7 @@ namespace stroimagnat
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            label15.Text = "АИС учета расхода материальных ресурсов на производстве в ООО «Строймагнат»";
+            Program.F3.Text = "АИС учета расхода материальных ресурсов в ООО «Строймагнат»";
             label17.Text = "Приход материала";
             panel3.Dock = DockStyle.Fill;
 

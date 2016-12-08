@@ -1203,10 +1203,12 @@
             // 
             // panel8
             // 
+            this.panel8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel8.BackgroundImage")));
+            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(117, 72);
+            this.panel8.Size = new System.Drawing.Size(72, 72);
             this.panel8.TabIndex = 1;
             // 
             // Form3

@@ -509,10 +509,9 @@
             // 
             this.panel2.Controls.Add(this.groupBox6);
             this.panel2.Controls.Add(this.groupBox5);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 72);
+            this.panel2.Location = new System.Drawing.Point(12, 119);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 492);
+            this.panel2.Size = new System.Drawing.Size(29, 18);
             this.panel2.TabIndex = 20;
             this.panel2.Visible = false;
             // 
@@ -755,9 +754,10 @@
             // 
             this.panel5.Controls.Add(this.groupBox11);
             this.panel5.Controls.Add(this.dataGridView7);
-            this.panel5.Location = new System.Drawing.Point(3, 167);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 72);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(19, 14);
+            this.panel5.Size = new System.Drawing.Size(800, 492);
             this.panel5.TabIndex = 21;
             this.panel5.Visible = false;
             // 
@@ -784,6 +784,7 @@
             this.button21.TabIndex = 6;
             this.button21.Text = "Отмена";
             this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
             // button20
             // 
@@ -793,6 +794,7 @@
             this.button20.TabIndex = 5;
             this.button20.Text = "Показать";
             this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // label28
             // 

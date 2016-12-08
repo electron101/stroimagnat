@@ -817,9 +817,28 @@ namespace stroimagnat
                 ds.Tables["SPIS_VID"].Rows.Clear();
                 load_prihod();
             }
-
             else
                 MessageBox.Show("Нет продуктов для выдачи", "Выдача", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            // фильтрация по дате
+            //
+            BindingSource bs = new BindingSource();
+            bs.DataSource = bs_rashod;
+
+            // Выводи все записи с... по...
+
+            bs.Filter = string.Format(" CONVERT(Дата_выдачи, 'System.DateTime') >= '{0:dd.MM.yyyy}' AND CONVERT(Дата_выдачи, 'System.DateTime') <= '{1:dd.MM.yyyy}'",
+            dateTimePicker1.Value.ToShortDateString(), dateTimePicker2.Value.ToShortDateString());
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = bs_rashod;
+            bs.RemoveFilter();
         }
     }
 }

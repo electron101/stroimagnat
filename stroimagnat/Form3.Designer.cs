@@ -641,9 +641,10 @@
             this.panel4.Controls.Add(this.button11);
             this.panel4.Controls.Add(this.dataGridView1);
             this.panel4.Controls.Add(this.groupBox1);
-            this.panel4.Location = new System.Drawing.Point(3, 143);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 72);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(25, 21);
+            this.panel4.Size = new System.Drawing.Size(800, 492);
             this.panel4.TabIndex = 20;
             this.panel4.Visible = false;
             // 
@@ -655,6 +656,7 @@
             this.button11.TabIndex = 15;
             this.button11.Text = "Удалить";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // dataGridView1
             // 
@@ -692,6 +694,7 @@
             this.button12.TabIndex = 8;
             this.button12.Text = "Обновить";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button15
             // 
@@ -701,6 +704,7 @@
             this.button15.TabIndex = 7;
             this.button15.Text = "Добавить";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // textBox_prod_cena
             // 
@@ -754,10 +758,9 @@
             // 
             this.panel5.Controls.Add(this.groupBox11);
             this.panel5.Controls.Add(this.dataGridView7);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 72);
+            this.panel5.Location = new System.Drawing.Point(3, 167);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(800, 492);
+            this.panel5.Size = new System.Drawing.Size(19, 14);
             this.panel5.TabIndex = 21;
             this.panel5.Visible = false;
             // 

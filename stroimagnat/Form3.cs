@@ -840,5 +840,116 @@ namespace stroimagnat
             bs.DataSource = bs_rashod;
             bs.RemoveFilter();
         }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            // --- [ ДОБАВЛЕНИЕ ] ---  ПРОДУКТЫ
+
+            // проверим все поля на заполненность
+            if (textBox_prod_name.Text == "" || textBox_prod_ediz.Text == "" || textBox_prod_cena.Text == "")
+            {
+                MessageBox.Show("Заполните все поля", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            // запрос на добавление
+            strSQL = "INSERT INTO product VALUES (@NAME, @ED, @CENA)";
+
+            // работаем через адаптер и свойство добавления
+            SQLAdapter.InsertCommand = new SqlCommand(strSQL, cn);  // новая команда создана
+            // определим параметры и зададим им значения
+            SQLAdapter.InsertCommand.Parameters.Add("@NAME", SqlDbType.VarChar).Value = textBox_prod_name.Text;
+            SQLAdapter.InsertCommand.Parameters.Add("@ED", SqlDbType.VarChar).Value = textBox_prod_ediz.Text;
+            SQLAdapter.InsertCommand.Parameters.Add("@CENA", SqlDbType.Decimal).Value = textBox_prod_cena.Text;
+            try
+            {
+                SQLAdapter.InsertCommand.ExecuteNonQuery(); // выполним запрос
+                // если удачно то...
+                load_product();           // обновим таблицу
+                MessageBox.Show("Успешно добавлен!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                // если не удачно обшика с инфой
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            // --- [ ОБНОВЛЕНИЕ ] ---   ПРОДУКТЫ
+
+            if (ds.Tables["PRODUCT"].Rows.Count > 0)              // проверка на наличие строк в таблице
+            {
+                // проверим все поля на заполненность
+                if (textBox_prod_name.Text == "" || textBox_prod_ediz.Text == "" || textBox_prod_cena.Text == "")
+                {
+                    MessageBox.Show("Заполните все поля", "Обновление", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // запрос на обновление
+                strSQL = " UPDATE product SET name = @NAME, ed_izmer = @ED, cena = @CENA " +
+                         " WHERE id_product = @ID_P ";
+
+                SQLAdapter.UpdateCommand = new SqlCommand(strSQL, cn);  // команда для обноления создана
+                // зададим значения параметрам 
+                SQLAdapter.UpdateCommand.Parameters.Add("@NAME", SqlDbType.VarChar).Value = textBox_prod_name.Text;
+                SQLAdapter.UpdateCommand.Parameters.Add("@ED", SqlDbType.VarChar).Value = textBox_prod_ediz.Text;
+                SQLAdapter.UpdateCommand.Parameters.Add("@CENA", SqlDbType.Decimal).Value = textBox_prod_cena.Text;
+                SQLAdapter.UpdateCommand.Parameters.Add("@ID_P", SqlDbType.Int).Value =
+                    Convert.ToInt32(ds.Tables["PRODUCT"].Rows[dataGridView1.CurrentRow.Index][0]);
+                try
+                {
+                    SQLAdapter.UpdateCommand.ExecuteNonQuery(); // выполним запрос
+                    // если удачно то...
+                    load_product();           // обновим таблицу
+                    MessageBox.Show("Запись успешно обновлена!", "Обновление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    // если запрос выполнился не удачно то ошибка с инфой
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+                MessageBox.Show("Таблица пуста", "Обновление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            // --- [ УДАЛЕНИЕ ВЫБРАННЫХ ] ---   ПРОДУКТЫ
+
+            if (ds.Tables["PRODUCT"].Rows.Count > 0)              // проверка на наличие строк в таблице
+            {
+                strSQL = " DELETE FROM product WHERE id_product = @ID_P ";
+
+                SQLAdapter.DeleteCommand = new SqlCommand(strSQL, cn);
+                // Если нажата кномка да, удаления не избежать.
+                if (DialogResult.Yes == MessageBox.Show("Вы уверены в удалении? \nЗаписей:  "
+                    + dataGridView1.SelectedRows.Count.ToString(), "Удаление", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question, MessageBoxDefaultButton.Button1))
+                {
+                    try
+                    {
+                        foreach (DataGridViewRow drv in dataGridView1.SelectedRows)
+                        {
+                            SQLAdapter.DeleteCommand.Parameters.Add("@ID_P", SqlDbType.Int).Value =
+                                Convert.ToInt32(ds.Tables["PRODUCT"].Rows[drv.Index][0]);
+
+                            SQLAdapter.DeleteCommand.ExecuteNonQuery();
+                            SQLAdapter.DeleteCommand.Parameters.Clear();
+                        }
+                        load_product();           // обновим таблицу
+                        MessageBox.Show("Успешно удалено!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            else
+                MessageBox.Show("Таблица пуста", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

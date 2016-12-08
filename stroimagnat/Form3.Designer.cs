@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.panel0 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label17 = new System.Windows.Forms.Label();
@@ -49,7 +51,6 @@
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.button8 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.numericUpDown_pri_kolvo = new System.Windows.Forms.NumericUpDown();
             this.comboBox_mol_pri = new System.Windows.Forms.ComboBox();
             this.button9 = new System.Windows.Forms.Button();
@@ -125,12 +126,13 @@
             this.textBox_post_name = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.visualStyler1 = new SkinSoft.VisualStyler.VisualStyler(this.components);
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel0.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox12.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_pri_kolvo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -153,6 +155,8 @@
             this.panel6.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel0
@@ -278,22 +282,26 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Controls.Add(this.button9);
+            this.panel1.Controls.Add(this.button);
             this.panel1.Controls.Add(this.button24);
             this.panel1.Controls.Add(this.groupBox12);
             this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.groupBox3);
+            this.panel1.Controls.Add(this.label20);
             this.panel1.Controls.Add(this.dataGridView3);
-            this.panel1.Location = new System.Drawing.Point(12, 78);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 72);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(38, 25);
+            this.panel1.Size = new System.Drawing.Size(800, 492);
             this.panel1.TabIndex = 16;
             this.panel1.Visible = false;
             // 
             // button24
             // 
-            this.button24.Location = new System.Drawing.Point(651, 385);
+            this.button24.Location = new System.Drawing.Point(146, 453);
             this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(100, 23);
+            this.button24.Size = new System.Drawing.Size(125, 33);
             this.button24.TabIndex = 18;
             this.button24.Text = "Печатать отчёт";
             this.button24.UseVisualStyleBackColor = true;
@@ -307,18 +315,18 @@
             this.groupBox12.Controls.Add(this.label29);
             this.groupBox12.Controls.Add(this.dateTimePicker3);
             this.groupBox12.Controls.Add(this.dateTimePicker4);
-            this.groupBox12.Location = new System.Drawing.Point(16, 9);
+            this.groupBox12.Location = new System.Drawing.Point(3, 196);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(718, 55);
+            this.groupBox12.Size = new System.Drawing.Size(268, 96);
             this.groupBox12.TabIndex = 17;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Фильтрация по дате";
             // 
             // button22
             // 
-            this.button22.Location = new System.Drawing.Point(601, 19);
+            this.button22.Location = new System.Drawing.Point(32, 70);
             this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(104, 19);
+            this.button22.Size = new System.Drawing.Size(224, 19);
             this.button22.TabIndex = 6;
             this.button22.Text = "Отмена";
             this.button22.UseVisualStyleBackColor = true;
@@ -326,9 +334,9 @@
             // 
             // button23
             // 
-            this.button23.Location = new System.Drawing.Point(481, 20);
+            this.button23.Location = new System.Drawing.Point(178, 20);
             this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(104, 19);
+            this.button23.Size = new System.Drawing.Size(78, 46);
             this.button23.TabIndex = 5;
             this.button23.Text = "Показать";
             this.button23.UseVisualStyleBackColor = true;
@@ -337,7 +345,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(248, 26);
+            this.label27.Location = new System.Drawing.Point(5, 52);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(21, 13);
             this.label27.TabIndex = 4;
@@ -346,7 +354,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(6, 26);
+            this.label29.Location = new System.Drawing.Point(12, 26);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(14, 13);
             this.label29.TabIndex = 2;
@@ -354,53 +362,31 @@
             // 
             // dateTimePicker3
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(275, 20);
+            this.dateTimePicker3.Location = new System.Drawing.Point(32, 46);
             this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker3.Size = new System.Drawing.Size(140, 20);
             this.dateTimePicker3.TabIndex = 1;
             // 
             // dateTimePicker4
             // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(26, 20);
+            this.dateTimePicker4.Location = new System.Drawing.Point(32, 20);
             this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker4.Size = new System.Drawing.Size(140, 20);
             this.dateTimePicker4.TabIndex = 0;
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(545, 385);
+            this.button8.Location = new System.Drawing.Point(196, 153);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(100, 23);
+            this.button8.Size = new System.Drawing.Size(75, 33);
             this.button8.TabIndex = 16;
             this.button8.Text = "Удалить";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.numericUpDown_pri_kolvo);
-            this.groupBox3.Controls.Add(this.comboBox_mol_pri);
-            this.groupBox3.Controls.Add(this.button9);
-            this.groupBox3.Controls.Add(this.comboBox_post_pri);
-            this.groupBox3.Controls.Add(this.button);
-            this.groupBox3.Controls.Add(this.comboBox_prod_pri);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.textBox_pri_cena);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Location = new System.Drawing.Point(12, 405);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(783, 81);
-            this.groupBox3.TabIndex = 15;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Добавление/Обновление";
-            // 
             // numericUpDown_pri_kolvo
             // 
-            this.numericUpDown_pri_kolvo.Location = new System.Drawing.Point(373, 46);
+            this.numericUpDown_pri_kolvo.Location = new System.Drawing.Point(95, 84);
             this.numericUpDown_pri_kolvo.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -413,16 +399,16 @@
             // comboBox_mol_pri
             // 
             this.comboBox_mol_pri.FormattingEnabled = true;
-            this.comboBox_mol_pri.Location = new System.Drawing.Point(373, 19);
+            this.comboBox_mol_pri.Location = new System.Drawing.Point(95, 57);
             this.comboBox_mol_pri.Name = "comboBox_mol_pri";
             this.comboBox_mol_pri.Size = new System.Drawing.Size(166, 21);
             this.comboBox_mol_pri.TabIndex = 14;
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(600, 48);
+            this.button9.Location = new System.Drawing.Point(3, 153);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(100, 23);
+            this.button9.Size = new System.Drawing.Size(75, 33);
             this.button9.TabIndex = 7;
             this.button9.Text = "Добавить";
             this.button9.UseVisualStyleBackColor = true;
@@ -431,16 +417,16 @@
             // comboBox_post_pri
             // 
             this.comboBox_post_pri.FormattingEnabled = true;
-            this.comboBox_post_pri.Location = new System.Drawing.Point(77, 45);
+            this.comboBox_post_pri.Location = new System.Drawing.Point(95, 30);
             this.comboBox_post_pri.Name = "comboBox_post_pri";
             this.comboBox_post_pri.Size = new System.Drawing.Size(166, 21);
             this.comboBox_post_pri.TabIndex = 13;
             // 
             // button
             // 
-            this.button.Location = new System.Drawing.Point(706, 48);
+            this.button.Location = new System.Drawing.Point(100, 153);
             this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(100, 23);
+            this.button.Size = new System.Drawing.Size(75, 33);
             this.button.TabIndex = 8;
             this.button.Text = "Обновить";
             this.button.UseVisualStyleBackColor = true;
@@ -449,7 +435,7 @@
             // comboBox_prod_pri
             // 
             this.comboBox_prod_pri.FormattingEnabled = true;
-            this.comboBox_prod_pri.Location = new System.Drawing.Point(77, 19);
+            this.comboBox_prod_pri.Location = new System.Drawing.Point(95, 3);
             this.comboBox_prod_pri.Name = "comboBox_prod_pri";
             this.comboBox_prod_pri.Size = new System.Drawing.Size(166, 21);
             this.comboBox_prod_pri.TabIndex = 12;
@@ -457,14 +443,14 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(290, 22);
+            this.label20.Location = new System.Drawing.Point(49, 232);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(0, 13);
             this.label20.TabIndex = 11;
             // 
             // textBox_pri_cena
             // 
-            this.textBox_pri_cena.Location = new System.Drawing.Point(640, 19);
+            this.textBox_pri_cena.Location = new System.Drawing.Point(95, 110);
             this.textBox_pri_cena.Name = "textBox_pri_cena";
             this.textBox_pri_cena.Size = new System.Drawing.Size(166, 20);
             this.textBox_pri_cena.TabIndex = 10;
@@ -472,7 +458,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(557, 22);
+            this.label11.Location = new System.Drawing.Point(3, 107);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(77, 13);
             this.label11.TabIndex = 9;
@@ -481,7 +467,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(259, 48);
+            this.label10.Location = new System.Drawing.Point(3, 81);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(72, 13);
             this.label10.TabIndex = 7;
@@ -490,16 +476,16 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(259, 22);
+            this.label7.Location = new System.Drawing.Point(3, 54);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(111, 13);
+            this.label7.Size = new System.Drawing.Size(86, 13);
             this.label7.TabIndex = 5;
-            this.label7.Text = "Ответственное лицо";
+            this.label7.Text = "Ответственный";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 48);
+            this.label8.Location = new System.Drawing.Point(3, 27);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 13);
             this.label8.TabIndex = 3;
@@ -508,7 +494,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 22);
+            this.label9.Location = new System.Drawing.Point(3, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(49, 13);
             this.label9.TabIndex = 1;
@@ -519,10 +505,10 @@
             this.dataGridView3.AllowUserToAddRows = false;
             this.dataGridView3.AllowUserToDeleteRows = false;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(34, 78);
+            this.dataGridView3.Location = new System.Drawing.Point(277, 6);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(539, 286);
+            this.dataGridView3.Size = new System.Drawing.Size(520, 480);
             this.dataGridView3.TabIndex = 14;
             // 
             // flowLayoutPanel1
@@ -1137,6 +1123,37 @@
             this.dataGridView2.Size = new System.Drawing.Size(397, 454);
             this.dataGridView2.TabIndex = 15;
             // 
+            // visualStyler1
+            // 
+            this.visualStyler1.License = ((SkinSoft.VisualStyler.Licensing.VisualStylerLicense)(resources.GetObject("visualStyler1.License")));
+            this.visualStyler1.LoadVisualStyle(null, "OSX (iTunes).vssf");
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.comboBox_prod_pri, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.numericUpDown_pri_kolvo, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.comboBox_post_pri, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textBox_pri_cena, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label10, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.comboBox_mol_pri, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label11, 0, 4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 6);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(268, 141);
+            this.tableLayoutPanel1.TabIndex = 19;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1157,16 +1174,16 @@
             this.MaximizeBox = false;
             this.Name = "Form3";
             this.Text = " ";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form3_FormClosed);
             this.Load += new System.EventHandler(this.Form3_Load);
             this.panel0.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_pri_kolvo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -1195,6 +1212,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1222,7 +1242,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.DateTimePicker dateTimePicker4;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.NumericUpDown numericUpDown_pri_kolvo;
         private System.Windows.Forms.ComboBox comboBox_mol_pri;
         private System.Windows.Forms.Button button9;
@@ -1299,6 +1318,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button button27;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private SkinSoft.VisualStyler.VisualStyler visualStyler1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 
     }
 }

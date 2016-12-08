@@ -1197,5 +1197,10 @@ namespace stroimagnat
             panel6.Visible = false;
             panel7.Visible = false;
         }
+
+        private void Form3_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

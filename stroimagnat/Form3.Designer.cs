@@ -641,10 +641,9 @@
             this.panel4.Controls.Add(this.button11);
             this.panel4.Controls.Add(this.dataGridView1);
             this.panel4.Controls.Add(this.groupBox1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 72);
+            this.panel4.Location = new System.Drawing.Point(3, 143);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(800, 492);
+            this.panel4.Size = new System.Drawing.Size(25, 21);
             this.panel4.TabIndex = 20;
             this.panel4.Visible = false;
             // 
@@ -961,9 +960,10 @@
             this.panel6.Controls.Add(this.button16);
             this.panel6.Controls.Add(this.groupBox2);
             this.panel6.Controls.Add(this.dataGridView2);
-            this.panel6.Location = new System.Drawing.Point(3, 187);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 72);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(25, 23);
+            this.panel6.Size = new System.Drawing.Size(800, 492);
             this.panel6.TabIndex = 22;
             this.panel6.Visible = false;
             // 
@@ -975,6 +975,7 @@
             this.button16.TabIndex = 17;
             this.button16.Text = "Удалить";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // groupBox2
             // 
@@ -1019,6 +1020,7 @@
             this.button17.TabIndex = 8;
             this.button17.Text = "Обновить";
             this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // button18
             // 
@@ -1028,6 +1030,7 @@
             this.button18.TabIndex = 7;
             this.button18.Text = "Добавить";
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // textBox_post_tel
             // 

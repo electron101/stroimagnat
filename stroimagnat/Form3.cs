@@ -143,6 +143,8 @@ namespace stroimagnat
             Program.F3.Text = "АИС учета расхода материальных ресурсов в ООО «Строймагнат»";
             label17.Text = "Приход материала";
             panel3.Dock = DockStyle.Fill;
+            pictureBox1.Image = null;
+            pictureBox1.Image = Image.FromFile("..\\..\\img\\main_64x64.png");
 
             //
             // --- [ ЗАГРУЗКА ] ---   ПРОДУКТЫ ------------------------------------------------------
@@ -299,6 +301,8 @@ namespace stroimagnat
 
         private void button1_Click(object sender, EventArgs e)
         {
+            pictureBox1.Image = null;
+            pictureBox1.Image = Image.FromFile("..\\..\\img\\prihod_64x64.png");
             label17.Text = (sender as Button).Text;
             // запустить форму прихода материалов
             panel3.Visible = false;
@@ -308,6 +312,8 @@ namespace stroimagnat
 
         private void button4_Click(object sender, EventArgs e)
         {
+            pictureBox1.Image = null;
+            pictureBox1.Image = Image.FromFile("..\\..\\img\\material_64x64.png");
             label17.Text = (sender as Button).Text;
             // запустить форму материалов
             panel3.Visible = false;
@@ -317,6 +323,8 @@ namespace stroimagnat
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            pictureBox1.Image = null;
+            pictureBox1.Image = Image.FromFile("..\\..\\img\\otpusk_64x64.png");
             label17.Text = (sender as Button).Text;
             // запустить форму отпуска материалов
             panel3.Visible = false;
@@ -326,6 +334,8 @@ namespace stroimagnat
 
         private void button3_Click(object sender, EventArgs e)
         {
+            pictureBox1.Image = null;
+            pictureBox1.Image = Image.FromFile("..\\..\\img\\folder_64x64.png");
             label17.Text = (sender as Button).Text;
             // запустить форму истории выдачи
             panel3.Visible = false;
@@ -335,6 +345,8 @@ namespace stroimagnat
 
         private void button6_Click(object sender, EventArgs e)
         {
+            pictureBox1.Image = null;
+            pictureBox1.Image = Image.FromFile("..\\..\\img\\postav_64x64.png");
             label17.Text = (sender as Button).Text;
             // запустить форму поставщиков
             panel3.Visible = false;
@@ -344,6 +356,8 @@ namespace stroimagnat
 
         private void button5_Click(object sender, EventArgs e)
         {
+            pictureBox1.Image = null;
+            pictureBox1.Image = Image.FromFile("..\\..\\img\\otvet_64x64.png");
             label17.Text = (sender as Button).Text;
             // запустить форму ответственных
             panel3.Visible = false;
@@ -1188,6 +1202,8 @@ namespace stroimagnat
 
         private void button27_Click(object sender, EventArgs e)
         {
+            pictureBox1.Image = null;
+            pictureBox1.Image = Image.FromFile("..\\..\\img\\main_64x64.png");
             label17.Text = "Главная";
             panel3.Visible = true;
             panel3.Dock = DockStyle.Fill;

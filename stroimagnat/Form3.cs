@@ -43,7 +43,7 @@ namespace stroimagnat
         void load_product()                   // функция для отображения информации о продукте в datagridview
         {
             ds.Tables["PRODUCT"].Clear();
-            strSQL = "SELECT id_product AS '№_Продукта', name AS 'Наименование', ed_izmer AS 'Единица измерения', cena AS 'Цена' FROM product";
+            strSQL = "SELECT id_product AS '№_Материала', name AS 'Наименование', ed_izmer AS 'Единица измерения', cena AS 'Цена' FROM product";
             SQLAdapter = new SqlDataAdapter(strSQL, cn);
 
             SQLAdapter.Fill(ds, "PRODUCT");
@@ -81,7 +81,7 @@ namespace stroimagnat
         {
             ds.Tables["PRIHOD"].Clear();
             strSQL = " SELECT prihod.id_prihod AS '№_Прихода', postav.name AS 'Поставщик', mol.name AS 'Ответственный', " +
-                     " product.name AS 'Продукт', prihod.kolvo AS 'Количество', prihod.cena_zakup AS 'Цена закупочная', " +
+                     " product.name AS 'Материал', prihod.kolvo AS 'Количество', prihod.cena_zakup AS 'Цена закупочная', " +
                      " prihod.date_time AS 'Дата_прихода' FROM prihod JOIN postav ON prihod.id_post = postav.id_post " +
                      " JOIN mol ON prihod.id_mol = mol.id_mol JOIN product ON prihod.id_product = product.id_product";
             SQLAdapter = new SqlDataAdapter(strSQL, cn);
@@ -96,7 +96,7 @@ namespace stroimagnat
         void load_otpusk()                   // функция для отображения информации
         {
             ds.Tables["OTPUSK"].Clear();
-            strSQL = " SELECT nalichie.id_product AS '№_Продукта', product.name AS 'Наименование', " +
+            strSQL = " SELECT nalichie.id_product AS '№_Материала', product.name AS 'Наименование', " +
                      " nalichie.kolvo AS 'Количество', product.ed_izmer AS 'Единица измерения' FROM nalichie " +
                      " JOIN product ON nalichie.id_product = product.id_product WHERE nalichie.kolvo > 0";
             SQLAdapter = new SqlDataAdapter(strSQL, cn);
@@ -110,7 +110,7 @@ namespace stroimagnat
         void load_rashod()                   // функция для отображения информации
         {
             ds.Tables["RASHOD"].Clear();
-            strSQL = " SELECT rashod.id_rashod AS '№_Расхода', product.id_product AS 'Продукт', " +
+            strSQL = " SELECT rashod.id_rashod AS '№_Расхода', product.name AS 'Материал', " +
                      " rashod.kolvo AS 'Количество', rashod.date_time AS 'Дата_выдачи' FROM rashod " +
                      " JOIN product ON rashod.id_product = product.id_product";
             SQLAdapter = new SqlDataAdapter(strSQL, cn);
@@ -128,7 +128,7 @@ namespace stroimagnat
 
             SqlConnectionStringBuilder bdr = new SqlConnectionStringBuilder();
             bdr.DataSource = @".\SQLExpress";
-            bdr.InitialCatalog = "vit";
+            bdr.InitialCatalog = "stroimagnat";
             bdr.IntegratedSecurity = true;
 
             cn = new SqlConnection(bdr.ConnectionString);
@@ -141,7 +141,7 @@ namespace stroimagnat
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             Program.F3.Text = "АИС учета расхода материальных ресурсов в ООО «Строймагнат»";
-            label17.Text = "Приход материала";
+            label17.Text = "Главная";
             panel3.Dock = DockStyle.Fill;
             pictureBox1.Image = null;
             pictureBox1.Image = Image.FromFile("..\\..\\img\\main_64x64.png");
@@ -189,7 +189,7 @@ namespace stroimagnat
             load_prihod();
             dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            comboBox_prod_pri.DataBindings.Add(new Binding("Text", bs_prihod, "Продукт", false, DataSourceUpdateMode.Never));
+            comboBox_prod_pri.DataBindings.Add(new Binding("Text", bs_prihod, "Материал", false, DataSourceUpdateMode.Never));
             comboBox_post_pri.DataBindings.Add(new Binding("Text", bs_prihod, "Поставщик", false, DataSourceUpdateMode.Never));
             comboBox_mol_pri.DataBindings.Add(new Binding("Text", bs_prihod, "Ответственный", false, DataSourceUpdateMode.Never));
             numericUpDown_pri_kolvo.DataBindings.Add(new Binding("Value", bs_prihod, "Количество", false, DataSourceUpdateMode.Never));
@@ -220,7 +220,7 @@ namespace stroimagnat
             dataGridView6.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             // добавляем нужные столбцы в ручную
-            ds.Tables["SPIS_VID"].Columns.Add("№_Продукта");
+            ds.Tables["SPIS_VID"].Columns.Add("№_Материала");
             ds.Tables["SPIS_VID"].Columns.Add("Наименование");
             ds.Tables["SPIS_VID"].Columns.Add("Колличество");
             ds.Tables["SPIS_VID"].Columns.Add("Единица измерения");
@@ -241,7 +241,7 @@ namespace stroimagnat
 
             comboBox_prod_pri.DataSource = bs_product;
             comboBox_prod_pri.DisplayMember = "Наименование";
-            comboBox_prod_pri.ValueMember = "№_Продукта";
+            comboBox_prod_pri.ValueMember = "№_Материала";
 
             comboBox_post_pri.DataSource = bs_post;
             comboBox_post_pri.DisplayMember = "Наименование";
@@ -301,6 +301,7 @@ namespace stroimagnat
 
         private void button1_Click(object sender, EventArgs e)
         {
+            load_prihod();
             pictureBox1.Image = null;
             pictureBox1.Image = Image.FromFile("..\\..\\img\\prihod_64x64.png");
             label17.Text = (sender as Button).Text;
@@ -323,6 +324,7 @@ namespace stroimagnat
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            load_rashod();
             pictureBox1.Image = null;
             pictureBox1.Image = Image.FromFile("..\\..\\img\\otpusk_64x64.png");
             label17.Text = (sender as Button).Text;
@@ -334,6 +336,7 @@ namespace stroimagnat
 
         private void button3_Click(object sender, EventArgs e)
         {
+            load_rashod();
             pictureBox1.Image = null;
             pictureBox1.Image = Image.FromFile("..\\..\\img\\folder_64x64.png");
             label17.Text = (sender as Button).Text;

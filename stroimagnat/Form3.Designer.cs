@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.panel0 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -176,6 +176,27 @@
             this.panel0.Size = new System.Drawing.Size(800, 72);
             this.panel0.TabIndex = 1;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label15.Location = new System.Drawing.Point(515, 9);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(273, 29);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "ООО «Строймагнат»";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label17.Location = new System.Drawing.Point(82, 9);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(48, 13);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "label17";
+            // 
             // panel8
             // 
             this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -196,27 +217,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(76, 72);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label17.Location = new System.Drawing.Point(82, 9);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(48, 13);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "label17";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.Location = new System.Drawing.Point(515, 9);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(273, 29);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "ООО «Строймагнат»";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button7
             // 
@@ -328,9 +328,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(3, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.Size = new System.Drawing.Size(57, 13);
             this.label9.TabIndex = 1;
-            this.label9.Text = "Продукт";
+            this.label9.Text = "Материал";
             // 
             // numericUpDown_pri_kolvo
             // 
